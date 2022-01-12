@@ -21,4 +21,5 @@ export class MoviesPageComponent implements OnInit {
     
   }
 
+
 }

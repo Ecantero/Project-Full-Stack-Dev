@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'http://localhost:3000';
 const movieDBURL = 'https://api.themoviedb.org'
+const imagesURL = 'https://image.tmdb.org/t/p/w500'
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,10 @@ export class FrontEndService {
 
   getTestData(){
     return this.http.get(this.testURL);
+  }
+
+  getImage(url:String){
+    return this.http.get(imagesURL + url)
   }
   
 }

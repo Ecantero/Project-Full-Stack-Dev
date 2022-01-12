@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoviesPageComponent } from './movies-page/movies-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SignupPageComponent } from './signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     MoviesPageComponent,
+    LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FrontEndService } from '../services/front-end.service';
 
 @Component({
@@ -7,13 +7,16 @@ import { FrontEndService } from '../services/front-end.service';
   styleUrls: ['./movies-page.component.css']
 })
 export class MoviesPageComponent implements OnInit {
-  movieData:any;
+  @Output() movieList:any;
+  pageNum = 1;
   constructor(frontEndService: FrontEndService) { 
-    frontEndService.getTestData().subscribe(
-      (data)=>{
-        console.log(data)
-        this.movieData = data
-      } 
+    frontEndService.getMovieList(this.pageNum).subscribe(
+      (movieData)=>{
+        console.log(movieData)
+        this.movieList = movieData
+        this.movieList = this.movieList.results
+        console.log(this.movieList)
+      }
     )
   }
 

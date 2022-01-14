@@ -1,2 +1,15 @@
-<p>movies-page works!</p>
-<h1>{{movieData}}</h1>
+<div class="movies_page">
+    <h1>welcome to the movies page</h1>
+
+    <div class="movie_list_container">
+        <app-movies-page-item
+        *ngFor='let movieItem of movieList'
+        [movieDetails]="movieItem">
+
+        </app-movies-page-item>
+
+    </div>
+    <div class="movie_pagination_container">
+
+    </div>
+</div>

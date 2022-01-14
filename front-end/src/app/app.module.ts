@@ -9,6 +9,7 @@ import { MoviesPageComponent } from './movies-page/movies-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MoviesPageItemComponent } from './movies-page-item/movies-page-item.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LoginPageComponent,
     SignupPageComponent,
     NavBarComponent,
+    MoviesPageItemComponent,
   ],
   imports: [
     BrowserModule,

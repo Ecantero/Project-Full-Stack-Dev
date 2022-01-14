@@ -18,6 +18,7 @@ export class MoviesPageComponent implements OnInit {
         console.log(this.movieList)
       }
     )
+    
   }
 
   ngOnInit(): void {

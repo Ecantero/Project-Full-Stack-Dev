@@ -9,21 +9,15 @@ import { FrontEndService } from '../services/front-end.service';
 export class MoviesPageItemComponent implements OnInit {
   @Input() movieDetails:any;
 
-  movieImageUrl=''
+  movieImageUrl='' 
 
   
   constructor(frontEndService: FrontEndService) {
-    console.log(this.movieDetails)
-    this.movieImageUrl = "https://image.tmdb.org/t/p/w500" + this.movieDetails.poster_path
-    
-    // frontEndService.getImage(this.movieDetails.poster_path).subscribe(
-    //   (url)=>{
-    //     console.log(url)
-    //   }
-    // )
+
    }
 
   ngOnInit(): void {
+    this.movieImageUrl = 'https://image.tmdb.org/t/p/w500' + this.movieDetails.poster_path;
   }
 
 }

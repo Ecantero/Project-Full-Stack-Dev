@@ -16,4 +16,7 @@ export class FrontEndService {
     return this.http.get(this.testURL);
   }
   
+  testCallback(){
+    return this.http.get(baseUrl + "/test");
+  }
 }

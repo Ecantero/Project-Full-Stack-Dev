@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MoviesPageComponent } from './movies-page/movies-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     MoviesPageComponent,
     LoginPageComponent,
     SignupPageComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,10 +26,7 @@ export class FrontEndService {
     return this.http.get(`${movieDBURL}/3/movie/${id}?api_key=${APIKEY}`)
   }
   
-  // getImage(url:String){
-  //   console.log(imagesURL+url)
-  //   return this.http.get(imagesURL + url)
-  // }
+
 
   getMovieList(pageNum:Number){
     return this.http.get(`${movieDBURL}/3/movie/popular?api_key=${APIKEY}&language=en-US&page=${pageNum}`)

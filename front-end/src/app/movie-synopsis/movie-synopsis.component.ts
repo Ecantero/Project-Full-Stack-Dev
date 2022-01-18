@@ -11,7 +11,8 @@ import { FrontEndService } from '../services/front-end.service';
 export class MovieSynopsisComponent implements OnInit {
   queryID:any;
   movie:any;
-  movieImageUrl=''
+  movieImageUrl='';
+  movieBackDrop ='';
 
   constructor(private route: ActivatedRoute,private frontEndService: FrontEndService ) { 
     console.log(this.queryID)
@@ -33,6 +34,7 @@ export class MovieSynopsisComponent implements OnInit {
         console.log(movieData);
         this.movie = movieData;
         this.movieImageUrl = 'https://image.tmdb.org/t/p/w500' + this.movie.poster_path;
+        this.movieBackDrop = 'https://image.tmdb.org/t/p/original' + this.movie.backdrop_path;
       }
     )
     

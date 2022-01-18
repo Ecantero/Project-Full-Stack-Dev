@@ -11,7 +11,7 @@
     align-content: flex-start;
 
     /* transition */
-    transition: all 2s ease-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .movie_item:hover{

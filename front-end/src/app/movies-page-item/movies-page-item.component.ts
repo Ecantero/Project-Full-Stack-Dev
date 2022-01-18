@@ -10,6 +10,7 @@ export class MoviesPageItemComponent implements OnInit {
   @Input() movieDetails:any;
 
   movieImageUrl='' 
+  movieID=''
 
   
   constructor(frontEndService: FrontEndService) {
@@ -18,6 +19,8 @@ export class MoviesPageItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieImageUrl = 'https://image.tmdb.org/t/p/w500' + this.movieDetails.poster_path;
+    this.movieID = this.movieDetails.id
+    
   }
 
 }

@@ -21,6 +21,10 @@ export class FrontEndService {
   testCallback(){
     return this.http.get(baseUrl + "/test");
   }
+
+  getMovieData(id:String){
+    return this.http.get(`${movieDBURL}/3/movie/${id}?api_key=${APIKEY}`)
+  }
   
   // getImage(url:String){
   //   console.log(imagesURL+url)

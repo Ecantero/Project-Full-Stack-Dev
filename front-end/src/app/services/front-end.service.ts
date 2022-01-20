@@ -31,4 +31,12 @@ export class FrontEndService {
   getMovieList(pageNum:Number){
     return this.http.get(`${movieDBURL}/3/movie/popular?api_key=${APIKEY}&language=en-US&page=${pageNum}`)
   }
+
+  getActors(movieID:Number){
+    return this.http.get(`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${APIKEY}&language=en-US`)
+  }
+
+  getActorImage(actorID:Number){
+    return this.http.get(`https://api.themoviedb.org/3/person/${actorID}/images?api_key=${APIKEY}`)
+  }
 }

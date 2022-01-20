@@ -1,5 +1,12 @@
 <div class="movie_item">
-    <img src={{movieImageUrl}} class="movie_img"/>
-    <h3 class="movie_title">{{movieDetails.original_title}}</h3>
-
+    <a
+    [routerLink]=[movieID]
+    >
+        <img src={{movieImageUrl}} class="movie_img"/>
+        <div>
+            <h3 class="movie_title">{{movieDetails.original_title}}</h3>
+            <h5>{{movieDetails.release_date}}</h5>
+        </div>
+    </a>
+    
 </div>

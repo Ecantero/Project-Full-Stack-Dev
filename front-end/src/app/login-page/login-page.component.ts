@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+//import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +6,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
-  name = new FormControl('');
+export class LoginPageComponent implements OnInit {
+
+  constructor(){}
+  ngOnInit() {
+      
+  }
+  
+  // loginUser(event){
+  //   event.preventDefault();
+  //   console.log(event)
+  // }
+  
+
 }

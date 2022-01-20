@@ -19,7 +19,7 @@ export class FrontEndService {
   }
   
   testCallback(){
-    return this.http.get(baseUrl + "/test");
+    return this.http.get(baseUrl + "/home");
   }
 
   getMovieData(id:String){

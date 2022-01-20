@@ -14,11 +14,14 @@ const pth = __dirname + "/views/";
 app.set("views", pth);
 app.use(express.static(pth));
 app.use(bodyParser.json());
-// app.use(cors(corsOp));
 
 app.use((req, res, next) => {
-  res.header("Allow-Control-Access-Origin", "*");
-  res.header("Allow-Control-Access-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
+  );
   next();
 })
 
@@ -34,9 +37,15 @@ app.use(
   })
 );
 
-app.get("/test", (req, res) => {
+app.get("/", (req, res) => {
+  console.log("This message is from / call");
+  res.sendFile(pth + "index.html");
+  // res.json({ message: "Backend Serve is Enabled" });
+});
+
+app.get("/home", (req, res) => {
     console.log("The backend is called thru the frontend");
-    res.sendDate();
+    res.send("hello there, this is the backend");
 });
 
 const PORT = process.env.PORT || 3000;

@@ -48,15 +48,6 @@ app.get('/users', async (req,res) => {
 //main().catch(console.error);
 
 
-
-// app.post('/users', function(req,res){
-//     client.connect();
-//     const findUsers = collection.find({}).toArray();
-//     const body = JSON.stringify(findUsers);
-//     res.json(body);
-//     client.close();
-// });
-
 // app.post('/login', (req, res) =>{
 //     //res.json({status: 'ok', data:'coming soon'});
 //     let {email, password} = req.body;

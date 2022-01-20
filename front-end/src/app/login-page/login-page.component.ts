@@ -1,4 +1,4 @@
-//import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,6 +17,9 @@ export class LoginPageComponent implements OnInit {
   //   event.preventDefault();
   //   console.log(event)
   // }
-  
+ onSubmit(f: NgForm){
+   console.log(f.value);
+   console.log(f.valid)
+ }
 
 }

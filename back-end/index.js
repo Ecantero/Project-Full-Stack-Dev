@@ -1,9 +1,9 @@
 
-//const runCrudOperations = require('./routes/routes.js');
+// const runCrudOperations = require('./routes/routes.js');
 const express = require("express");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
-//const routes = require("./routes/routes");
+// const routes = require("./routes/routes");
 // const cors = require("cors");
 const path = require("path");
 
@@ -37,15 +37,14 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  console.log("This message is from / call");
-  res.sendFile(pth + "index.html");
-  // res.json({ message: "Backend Serve is Enabled" });
-});
+// app.get("/", (req, res) => {
+//   console.log("This message is from / call");
+//   res.sendFile(pth + "index.html");
+// });
 
 app.get("/home", (req, res) => {
     console.log("The backend is called thru the frontend");
-    res.send("hello there, this is the backend");
+    res.send({"name":"Ernesto"});
 });
 
 const PORT = process.env.PORT || 3000;

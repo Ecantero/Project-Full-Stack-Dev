@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
     this.service.testCallback().subscribe({
       next: (data) => this.testData = data,
       error: (e) => console.error(e),
-      complete: () => console.info(`connection to the backend is working, data recieved: ${this.testData}`),
+      complete: () => console.info(`connection to the backend is working, data recieved: ${this.testData.name}`),
     });
   }
 }

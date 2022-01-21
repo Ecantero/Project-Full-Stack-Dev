@@ -1,1 +1,27 @@
-<p>login-page works!</p>
+<form  #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <!-- Testing -->
+    <!-- <p>Form value: {{ f.value | json }}</p>
+    <p>Form valid: {{ f.valid }}</p> -->
+    <div class='input'>
+        <label>Username</label>
+        <input type="text" id="username" name="username" ngModel required #username="ngModel">
+       <!-- Testing -->
+        <!-- <p>Username value: {{ username.value }}</p>
+        <p>Username valid: {{ username.valid }}</p>
+        <p>Username dirty: {{ username.dirty }}</p>
+        <p>Username touched: {{ username.touched}}</p> -->
+    </div>
+    <div class='input'>
+        <label>Password</label>
+        <input type='text' id="password" name="password" ngModel required #password="ngModel">
+        <!-- Testing -->
+        <!-- <p>Password valid: {{ password.valid }}</p>
+        <p>Password value: {{ password.value }}</p>
+        <p>Password dirty: {{ password.dirty }}</p>
+        <p>Password touched: {{ password.touched}}</p> -->
+    </div>
+    <div class="input">
+        <input type="submit" [disabled]="f.invalid" id="submit" value="login">
+    </div>
+
+</form>

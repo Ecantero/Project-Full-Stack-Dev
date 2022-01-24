@@ -1,4 +1,4 @@
-<div class="movie_banner" >
+<div class="movie_banner" style="background-image: url({{movieBackDrop}});">
     <section class="inner_content">
         <div>
             <img src={{movieImageUrl}} class="poster">
@@ -20,15 +20,23 @@
     </section>
     
 </div>
-<div class="actors_section">
-    <div class="actor"
-    >
-    <app-actor-item
-    *ngFor="let actor of actors.cast.slice(0,5)"
-    [actorInfo]="actor"
-    [actorID]="actor.id">
-
-    </app-actor-item>
-
+<div class="actors_block">
+    <h1>Actors</h1>
+    <div class="actors_section">
+    
+        <app-actor-item
+        class="actor_card"
+        *ngFor="let actor of actors.cast.slice(0,5)"
+        [actorInfo]="actor"
+        [actorID]="actor.id">
+        </app-actor-item>
+    
+        
     </div>
+    
+</div>
+
+<div class="review_block">
+    <h1>Reviews</h1>
+    <review-component></review-component>
 </div>

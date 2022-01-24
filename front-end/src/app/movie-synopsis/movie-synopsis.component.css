@@ -1,9 +1,16 @@
 .movie_banner{
-    background-color: blue;
+    background-color: rgba(51, 51, 51,0.1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover; 
+    border-radius: 10px;
+       
 }
 
 .poster{
+    margin-top: 5px;
     width: 300px;
+    border-radius: 5px;
     /* height: 300px; */
 }
 
@@ -12,6 +19,7 @@
     padding-right: 30px;
     display: flex;
     flex-wrap: nowrap;
+    color: #ffffff  ;
     
 }
 
@@ -22,16 +30,27 @@
 }
 
 
-
+.actors_block{
+    padding-left: 50px;
+}
 
 .actors_section{
     display: flex;
+    /* padding-left: 30px; */
 }
 
 .actor{
     margin-left: 5px;
     /* height: 50px; */
-    width: 100px;
+    
 
-    border: 4px solid black;
+    
+}
+
+.actor_card{
+    margin-right: 5px;
+}
+
+.review_block{
+    padding-left: 50px;
 }

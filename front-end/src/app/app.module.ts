@@ -14,6 +14,7 @@ import { MovieSynopsisComponent } from './movie-synopsis/movie-synopsis.componen
 import { ActorItemComponent } from './actor-item/actor-item.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
+import { ReviewComponentComponent } from './review-component/review-component.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     MoviesPageItemComponent,
     MovieSynopsisComponent,
     ActorItemComponent,
+    ReviewComponentComponent,
   ],
   imports: [
     BrowserModule,

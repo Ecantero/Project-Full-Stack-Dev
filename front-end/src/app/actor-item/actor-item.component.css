@@ -1,7 +1,32 @@
-.actorCard{
+.actor_card{
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    min-width: 138px ;
+    margin-right: 20px;
+    background-color: #ffff;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid rgba(211, 211, 211, 1);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
 
+.actor_card p{
+    padding: 0 10px;
 }
 
 .actorImage{
-    width: 50px;
+    margin: 0 auto;
+    width: 138px;
+    height: 175px;
+    display: block;
+    border-radius: 10px 10px 5.5px 5.5px;
+}
+
+.actor_names{
+    width: 138px;
+}
+
+.actor_names p{
+    text-overflow: ellipsis;
 }

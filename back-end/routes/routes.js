@@ -28,53 +28,40 @@ app.get('/users', async (req,res) => {
     }
 })
 
-//connecting to cluster, access database,  and closing it
-// async function main(){
-//     try {
-//         //connect to cluster
-//         await client.connect();
 
-//         //make db calls
-//         await listDatabases(client);
-//         const findResult = await collection.find({}).toArray();
-//         console.log('Found documents =>', findResult);
+app.post('/login', urlencoded, async(req,res) => {
 
-
-//     }catch(e){
-//         console.error(e);
-//     }finally{
-//         await client.close();
-//     }
-// }
-
-//main().catch(console.error);
-
-
-// app.post('/login', (req, res) =>{
-//     //res.json({status: 'ok', data:'coming soon'});
-//     let {email, password} = req.body;
-//     email = email.trim();
-//     password = password.trim();
-
-//     if(email == "" || password == ""){
-//         res.json({
-//             status: "FAILED",
-//             message: "Empty credentials suppilied"
-//         })
-//     } else {
+    try{
         
-//     }
-// });
+        let {email, password} = req.body;
+            email = email.trim();
+            password = password.trim();
+
+            console.log(email);
+            if(email == "" || password == ""){
+                res.json({
+                    status: "FAILED",
+                    message: "Empty credentials supplied"
+                })
+            } else {
+                await client.connect();
+                const user = await collection.findOne({email: req.body.email});
+                await client.close();
+                console.log(user);
+                res.json({
+                    status: "Success",
+                    message: "Credentials supplied"
+                })
+            }
+    
+    } catch(error){
+        res.json(error);
+    } finally{
+        //await client.close();
+    }
+})
 
 
-
-async function listDatabases(client) {
-  databasesList = await client.db().admin().listDatabases();
-
-  console.log("Databases:");
-
-  databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
-}
 
 //salting and hashing passsword using this method
 const hashPassword = (passwordStr) => {

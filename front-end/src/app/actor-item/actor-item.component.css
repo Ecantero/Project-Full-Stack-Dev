@@ -4,6 +4,8 @@
     flex-direction: column;
     align-content: center;
     min-width: 138px ;
+    height: 265px;
+    max-height: 270px;
     margin-right: 20px;
     background-color: #ffff;
     border-radius: 10px 10px 10px 10px;
@@ -29,4 +31,6 @@
 
 .actor_names p{
     text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

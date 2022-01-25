@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcrypt-nodejs");
 const { MongoClient, ObjectId } = require("mongodb");
 const router = express.Router();
+const bodyParser = require('body-parser');
 const url =
   "mongodb+srv://movietest:fullstack1@cluster0.kljv5.mongodb.net/userDB?authSource=admin&replicaSet=atlas-opq1t6-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true";
 // const url = 'mongodb://localhost:27017';
@@ -29,7 +30,7 @@ app.get('/users', async (req,res) => {
 })
 
 
-app.post('/login', urlencoded, async(req,res) => {
+app.post('/login', bodyParser.urlencoded({ extended: true }), async(req,res) => {
 
     try{
         
@@ -45,13 +46,28 @@ app.post('/login', urlencoded, async(req,res) => {
                 })
             } else {
                 await client.connect();
-                const user = await collection.findOne({email: req.body.email});
+                const user = await collection.findOne({email: email});
                 await client.close();
                 console.log(user);
-                res.json({
-                    status: "Success",
-                    message: "Credentials supplied"
-                })
+                if(user != null){
+                   if(user.password === password){
+                    res.json({
+                        status: "Success",
+                        message: "Credentials supplied"
+                    })
+                   } else {
+                    res.json({
+                        status: "FAILED",
+                        message: "Email/Password Incorrect"
+                    })
+                   }
+                } else {
+                    res.json({
+                        status: "FAILED",
+                        message: "Incorrect credentials supplied"
+                    })
+                }
+               
             }
     
     } catch(error){

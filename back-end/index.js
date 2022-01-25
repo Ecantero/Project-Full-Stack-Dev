@@ -1,9 +1,7 @@
-
-// const runCrudOperations = require('./routes/routes.js');
 const express = require("express");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
-// const routes = require("./routes/routes");
+const routes = require("./routes/routes");
 // const cors = require("cors");
 const path = require("path");
 
@@ -42,10 +40,11 @@ app.use(
 //   res.sendFile(pth + "index.html");
 // });
 
-app.get("/home", (req, res) => {
-    console.log("The backend is called thru the frontend");
-    res.send({"name":"Ernesto"});
-});
+app.get("/home", routes.home);
+
+app.post("/login", urlencodedParser, routes.login);
+
+app.get("/users", routes.users);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

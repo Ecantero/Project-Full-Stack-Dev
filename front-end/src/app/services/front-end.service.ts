@@ -22,6 +22,10 @@ export class FrontEndService {
     return this.http.get(baseUrl + "/home");
   }
 
+  getUsers() {
+    return this.http.get(baseUrl + "/users");
+  }
+
   getMovieData(id:String){
     return this.http.get(`${movieDBURL}/3/movie/${id}?api_key=${APIKEY}`)
   }

@@ -2,46 +2,53 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 const baseUrl = 'http://localhost:3000';
-const movieDBURL = 'https://api.themoviedb.org'
-const imagesURL = 'https://image.tmdb.org/t/p/w500'
-const APIKEY = 'f669645cad8fbe1526a40b2deee8a49e'
+const movieDBURL = 'https://api.themoviedb.org';
+const imagesURL = 'https://image.tmdb.org/t/p/w500';
+const APIKEY = 'f669645cad8fbe1526a40b2deee8a49e';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FrontEndService {
   constructor(private http: HttpClient) {}
-  testURL=`https://api.themoviedb.org/3/movie/550?api_key=${APIKEY}`
+  testURL = `https://api.themoviedb.org/3/movie/550?api_key=${APIKEY}`;
 
-
-  getTestData(){
+  getTestData() {
     return this.http.get(this.testURL);
   }
-  
-  testCallback(){
-    return this.http.get(baseUrl + "/home");
+
+  testCallback() {
+    return this.http.get(baseUrl + '/home');
   }
 
   getUsers() {
-    return this.http.get(baseUrl + "/users");
+    return this.http.get(baseUrl + '/users');
   }
 
-  getMovieData(id:String){
-    return this.http.get(`${movieDBURL}/3/movie/${id}?api_key=${APIKEY}`)
-  }
-  
-
-
-  getMovieList(pageNum:Number){
-    return this.http.get(`${movieDBURL}/3/movie/popular?api_key=${APIKEY}&language=en-US&page=${pageNum}`)
+  userLogin(data: any) {
+    return this.http.post(`${baseUrl}/login`, data);
   }
 
-  getActors(movieID:Number){
-    return this.http.get(`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${APIKEY}&language=en-US`)
+  getMovieData(id: String) {
+    return this.http.get(`${movieDBURL}/3/movie/${id}?api_key=${APIKEY}`);
   }
 
-  getActorImage(actorID:Number){
-    return this.http.get(`https://api.themoviedb.org/3/person/${actorID}/images?api_key=${APIKEY}`)
+  getMovieList(pageNum: Number) {
+    return this.http.get(
+      `${movieDBURL}/3/movie/popular?api_key=${APIKEY}&language=en-US&page=${pageNum}`
+    );
+  }
+
+  getActors(movieID: Number) {
+    return this.http.get(
+      `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${APIKEY}&language=en-US`
+    );
+  }
+
+  getActorImage(actorID: Number) {
+    return this.http.get(
+      `https://api.themoviedb.org/3/person/${actorID}/images?api_key=${APIKEY}`
+    );
   }
 
   getSearchedMovie(query:string){

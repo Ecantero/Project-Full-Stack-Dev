@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt-nodejs");
+const bcrypt = require("bcrypt");
 const { MongoClient, ObjectId } = require("mongodb");
 const url =
   "mongodb+srv://movietest:fullstack1@cluster0.kljv5.mongodb.net/userDB?authSource=admin&replicaSet=atlas-opq1t6-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true";
@@ -72,6 +72,11 @@ exports.login = async (req, res) => {
   }
 };
 
+const saltRounds = 10;
 const hashPassword = (passwordStr) => {
-  return bcrypt.hashSync(passwordStr);
+  return bcrypt.hashSync(passwordStr, saltRounds);
 };
+
+const comparePassword = (passStr1, passStr2) => {
+  return bcrypt.compare(passStr1, passStr2);
+}

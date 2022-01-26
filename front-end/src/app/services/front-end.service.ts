@@ -43,4 +43,8 @@ export class FrontEndService {
   getActorImage(actorID:Number){
     return this.http.get(`https://api.themoviedb.org/3/person/${actorID}/images?api_key=${APIKEY}`)
   }
+
+  getSearchedMovie(query:string){
+    return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`)
+  }
 }

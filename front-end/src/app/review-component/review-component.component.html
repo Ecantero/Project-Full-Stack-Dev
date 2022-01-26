@@ -1,1 +1,12 @@
-<p>review-component works!</p>
+<section>
+    <textarea matInput placeholder="Your Message" 
+        cdkAutosizeMinRows="6" class="textArea"></textarea>
+    <div>
+        <!-- display the array of stars -->
+        <ng-container *ngFor="let star of stars">
+          <app-star [starID]="star" [rating]="rating || hoverState " (enter)="enter($event)" (leave)="leave()"
+            (bigClick)="updateRating(star)">
+          </app-star>
+        </ng-container>
+    </div>
+</section>

@@ -15,6 +15,7 @@ import { ActorItemComponent } from './actor-item/actor-item.component';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
 import { ReviewComponentComponent } from './review-component/review-component.component';
+import { StarComponent } from './star/star.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ReviewComponentComponent } from './review-component/review-component.co
     MovieSynopsisComponent,
     ActorItemComponent,
     ReviewComponentComponent,
+    StarComponent,
   ],
   imports: [
     BrowserModule,

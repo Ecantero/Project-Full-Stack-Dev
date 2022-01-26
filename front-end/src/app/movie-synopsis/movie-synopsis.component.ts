@@ -16,7 +16,6 @@ export class MovieSynopsisComponent implements OnInit {
   actors:any;
 
   constructor(private route: ActivatedRoute,private frontEndService: FrontEndService ) { 
-    console.log(this.queryID)
     
   }
 
@@ -27,12 +26,10 @@ export class MovieSynopsisComponent implements OnInit {
     // })
     const routeParams = this.route.snapshot.paramMap;
     this.queryID = Number(routeParams.get('id'))
-    console.log(this.queryID)
 
     
     this.frontEndService.getMovieData(this.queryID).subscribe(
       movieData =>{
-        console.log(movieData);
         this.movie = movieData;
         this.movieImageUrl = 'https://image.tmdb.org/t/p/w500' + this.movie.poster_path;
         this.movieBackDrop = 'https://image.tmdb.org/t/p/original' + this.movie.backdrop_path;
@@ -41,7 +38,6 @@ export class MovieSynopsisComponent implements OnInit {
 
     this.frontEndService.getActors(this.queryID).subscribe(
       (movieActors)=>{
-        console.log(movieActors)
         this.actors = movieActors; 
       }
     )

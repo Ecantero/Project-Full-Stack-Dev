@@ -1,5 +1,4 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { FrontEndService } from '../services/front-end.service';
 
 @Component({
   selector: 'app-movies-page-item',
@@ -13,7 +12,7 @@ export class MoviesPageItemComponent implements OnInit {
   movieID=''
 
   
-  constructor(frontEndService: FrontEndService) {
+  constructor() {
 
    }
 

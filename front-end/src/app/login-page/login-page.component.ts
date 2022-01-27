@@ -1,5 +1,7 @@
 import { FormControl, NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(){}
+  constructor(private loginService:LoginService) { }
+  
   ngOnInit() {
-      
+    this.loginService.getAPIData().subscribe((response) =>{
+      console.log('response:', response)
+    },(error) =>{
+      console.log('error: ', error)
+    })    
   }
   
   // loginUser(event){

@@ -1,7 +1,8 @@
 import { FormControl, NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginService } from './login.service';
+import { FrontEndService } from '../services/front-end.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -10,23 +11,32 @@ import { LoginService } from './login.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private loginService:LoginService) { }
+
+
+  constructor(private frontEndService:FrontEndService) { }
   
   ngOnInit() {
-    this.loginService.getAPIData().subscribe((response) =>{
-      console.log('response:', response)
-    },(error) =>{
-      console.log('error: ', error)
-    })    
+    this.frontEndService.getUsers().subscribe((response) => {
+      console.log('response: ', response)
+    }, (error) =>{
+      console.log("error: ", error)
+    })
+  
+ 
+    
   }
   
-  // loginUser(event){
-  //   event.preventDefault();
-  //   console.log(event)
-  // }
+
  onSubmit(f: NgForm){
    console.log(f.value);
-   console.log(f.valid)
+   console.log(f.valid);
+    this.frontEndService.userLogin(f.value).subscribe((response) => {
+      console.log('response: ', response)
+    }, (error) =>{
+      console.log("error: ", error)
+    })
+  
+    
  }
 
 }

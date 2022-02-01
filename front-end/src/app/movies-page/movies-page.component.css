@@ -1,6 +1,7 @@
 .movies_page{
     text-align: center;
     margin: 0 auto;
+    margin-top: 10px;
 }
 
 
@@ -39,7 +40,24 @@
 
 .search_button{
     height: 40px;
+    width: 80px;
+    color:#ffff;
+    background-color: rgb(3,37,65);
     margin-left: 10px;
-    /* margin-bottom: 40px; */
     margin-top: 20px;
+    border: none;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .5s ease-in-out;
+
 }
+
+
+.search_button:hover{
+    background-color: rgb(8, 70, 121);
+}
+
+

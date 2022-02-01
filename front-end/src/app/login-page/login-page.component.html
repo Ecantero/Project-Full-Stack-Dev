@@ -2,29 +2,23 @@
     
     <form  class='formComponent' #f="ngForm" (ngSubmit)="onSubmit(f)">
         <div>Welcome Back!</div>
-        <!-- Testing -->
-        <!-- <p>Form value: {{ f.value | json }}</p>
-        <p>Form valid: {{ f.valid }}</p> -->
+
         <div class='input'>
     
             <input type="text" id="email" name="email" ngModel required #username="ngModel" placeholder="email">
-        <!-- Testing -->
-            <!-- <p>Username value: {{ username.value }}</p>
-            <p>Username valid: {{ username.valid }}</p>
-            <p>Username dirty: {{ username.dirty }}</p>
-            <p>Username touched: {{ username.touched}}</p> -->
+ 
         </div>
         <div class='input'>
     
             <input type='text' id="password" name="password" ngModel required #password="ngModel" placeholder="password">
-            <!-- Testing -->
-            <!-- <p>Password valid: {{ password.valid }}</p>
-            <p>Password value: {{ password.value }}</p>
-            <p>Password dirty: {{ password.dirty }}</p>
-            <p>Password touched: {{ password.touched}}</p> -->
+          
         </div>
         <div class="input">
             <input type="submit" [disabled]="f.invalid" id="submit" value="login">
+        </div>
+
+        <div id='errorMsg' class="errorMessage">
+            {{errorMessage}}
         </div>
 
     </form>

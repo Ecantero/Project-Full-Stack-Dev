@@ -24,3 +24,11 @@
 .input{
     padding: 5px;
 }
+.errorMessage{
+    /* display: none; */
+    
+    width: 270px;
+    height: 20px;
+    text-align: center;
+
+}

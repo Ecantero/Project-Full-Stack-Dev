@@ -95,13 +95,13 @@ export class MoviesPageComponent implements OnInit {
         // console.log(movieData)
         this.movieList = movieData
         this.movieList = this.movieList.results
-        console.log(this.movieList)
+        // console.log(this.movieList)
       }
     )
     
   }
   searchMovies(){
-    console.log(this.queryString);
+    // console.log(this.queryString);
     
     this.genres.forEach(genre => {
       // console.log(genre)
@@ -125,7 +125,7 @@ export class MoviesPageComponent implements OnInit {
         this.tempData = movieData;
         this.tempData = this.tempData.results
       
-        console.log(this.tempData)
+        // console.log(this.tempData)
         if(this.tempData[0].media_type === "movie")
         {
           this.movieList = this.tempData
@@ -140,14 +140,12 @@ export class MoviesPageComponent implements OnInit {
 
   setActorMovies(){
     const actors:any[] = this.tempData;
-    console.log(actors)
-
-    
+    // console.log(actors)
 
     
     let dummyArray:any[] = [];
     actors.forEach((actor: any) => {
-      console.log(actor)
+      // console.log(actor)
 
       if(actor.media_type === "movie"){
         console.log('')

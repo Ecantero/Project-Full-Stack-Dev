@@ -1,7 +1,8 @@
 import { FormControl, NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginService } from './login.service';
+import { Route, Router } from '@angular/router';
+import { FrontEndService } from '../services/front-end.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -10,23 +11,49 @@ import { LoginService } from './login.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private loginService:LoginService) { }
+  errorMessage = '';
+
+  constructor(private frontEndService:FrontEndService, private router: Router) { }
   
+ 
   ngOnInit() {
-    this.loginService.getAPIData().subscribe((response) =>{
-      console.log('response:', response)
-    },(error) =>{
-      console.log('error: ', error)
-    })    
+   //var errorMessage = document.getElementById('errorMsg').innerHTML = '';
+
+  
+    this.frontEndService.getUsers().subscribe((response) => {
+      //console.log('response: ', response)
+   
+    }, (error) =>{
+      console.log("error: ", error)
+    })
+  
+ 
+    
   }
   
-  // loginUser(event){
-  //   event.preventDefault();
-  //   console.log(event)
-  // }
+
  onSubmit(f: NgForm){
    console.log(f.value);
-   console.log(f.valid)
+   console.log(f.valid);
+    this.frontEndService.userLogin(f.value).subscribe((response) => 
+    {
+      console.log('response: ', response)
+       var userCredentials = JSON.stringify(response);
+       console.log(userCredentials);
+
+       if(userCredentials.includes('Success')){
+          this.router.navigate(['/movies']);
+       } else {
+        this.errorMessage = 'Incorrect Email/Password credentials';
+       }
+      
+    }, (error) =>{
+      console.log("error: ", error)
+    })
+
+
+  
+    
  }
 
 }

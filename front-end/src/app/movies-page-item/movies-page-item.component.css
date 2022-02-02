@@ -15,6 +15,14 @@
     cursor: pointer;
 }
 
+.movie_item a{
+    text-decoration: none;
+    color: black;
+}
+.movie_item a:visited{
+    color: black;
+}
+
 .movie_item:hover{
     transform: scale(1.1);
 }

@@ -1,24 +1,63 @@
+.movies_page{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+
+
 .movie_list_container{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.movie_search{
-    margin-bottom: 30px;
-    text-align: center;
-}
+
 
 .search_input{
     width: 600px;
     height: 80px;
     border-radius: 9px;
-    border: 1px solid rgb(38, 255, 226);
+    border: 1px solid rgb(3,37,65);
     outline: none;
     font-size: 2rem;
 }
 
 .search_input::after{
-    border: 1px solid rgb(38, 255, 226);
+    border: 1px solid rgb(3,37,65);
     
 }
+
+.movie_search{
+    margin-left: 40px;
+    margin-bottom: 30px;
+
+    /* align-content: center; */
+    text-align: center;
+    display:flex;
+    flex-direction: row;
+}
+
+.search_button{
+    height: 40px;
+    width: 80px;
+    color:#ffff;
+    background-color: rgb(3,37,65);
+    margin-left: 10px;
+    margin-top: 20px;
+    border: none;
+
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: 400;
+    transition: all .5s ease-in-out;
+
+}
+
+
+.search_button:hover{
+    background-color: rgb(8, 70, 121);
+}
+
+

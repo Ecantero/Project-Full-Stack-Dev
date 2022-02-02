@@ -52,6 +52,12 @@ export class FrontEndService {
   }
 
   getSearchedMovie(query:string){
-    return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`)
+    return this.http.get(`https://api.themoviedb.org/3/search/multi?api_key=${APIKEY}&language=en-US&query=${query}&page=1`)
   }
+
+  getMovieByGenre(query:number){
+    return this.http.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&with_genres=${query}`)
+  }
+
+
 }

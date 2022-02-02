@@ -12,5 +12,12 @@
         [movieDetails]="movieItem">
         </app-movies-page-item>
     </div>
-    <div class="movie_pagination_container"></div>
+    <div class="movie_pagination_container">
+        <div class="pageButton" (click)="pageBack()">
+            <h2>Back</h2>
+        </div>
+        <div class="pageButton" (click)="pageNext()">
+            <h2>Next</h2>
+        </div>
+    </div>
 </div>

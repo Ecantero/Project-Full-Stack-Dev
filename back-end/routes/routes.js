@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { MongoClient, ObjectId } = require("mongodb");
 const url =
   "mongodb+srv://movietest:fullstack1@cluster0.kljv5.mongodb.net/userDB?authSource=admin&replicaSet=atlas-opq1t6-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true";
@@ -11,10 +11,12 @@ const dbName = "moviedatabase";
 const db2 = client.db(dbName);
 const collection = db2.collection("users");
 
+const reviewCollection = db2.collection("Review/Rating");
+
 exports.home = (req, res) => {
   console.log("The backend is called thru the frontend");
-  res.send({"name":"Ernesto"});
-}
+  res.send({ name: "Ernesto" });
+};
 
 exports.users = async (req, res) => {
   try {
@@ -47,7 +49,7 @@ exports.login = async (req, res) => {
       await client.close();
       console.log(user);
       if (user != null) {
-        if (user.password === password) {
+        if (comparePassword(user.password, password) )  {
           res.json({
             status: "Success",
             message: "Credentials supplied",
@@ -72,11 +74,6 @@ exports.login = async (req, res) => {
   }
 };
 
-const saltRounds = 10;
-const hashPassword = (passwordStr) => {
-  return bcrypt.hashSync(passwordStr, saltRounds);
-};
-
 const comparePassword = (passStr1, passStr2) => {
-  return bcrypt.compare(passStr1, passStr2);
-}
+  return bcrypt.compare(passStr1, passStr2)
+};

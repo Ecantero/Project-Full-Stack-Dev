@@ -49,7 +49,7 @@ exports.login = async (req, res) => {
       await client.close();
       console.log(user);
       if (user != null) {
-        if (user.password === password) {
+        if (comparePassword(user.password, password) )  {
           res.json({
             status: "Success",
             message: "Credentials supplied",

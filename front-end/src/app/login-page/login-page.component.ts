@@ -13,47 +13,52 @@ export class LoginPageComponent implements OnInit {
 
   errorMessage = '';
 
+
   constructor(private frontEndService:FrontEndService, private router: Router) { }
   
  
   ngOnInit() {
-   //var errorMessage = document.getElementById('errorMsg').innerHTML = '';
-
-  
     this.frontEndService.getUsers().subscribe((response) => {
       //console.log('response: ', response)
-   
     }, (error) =>{
       console.log("error: ", error)
     })
-  
- 
-    
   }
   
 
+saveSession( email: string, password: string){
+  sessionStorage.setItem(email, password);
+}
+
+getSession(){
+  return sessionStorage.getItem('currentUser');
+}
+
  onSubmit(f: NgForm){
-   console.log(f.value);
-   console.log(f.valid);
-    this.frontEndService.userLogin(f.value).subscribe((response) => 
-    {
-      console.log('response: ', response)
-       var userCredentials = JSON.stringify(response);
-       console.log(userCredentials);
-
-       if(userCredentials.includes('Success')){
-          this.router.navigate(['/movies']);
-       } else {
-        this.errorMessage = 'Incorrect Email/Password credentials';
-       }
-      
-    }, (error) =>{
-      console.log("error: ", error)
-    })
-
-
   
-    
- }
+  var userInformation = JSON.stringify(f.value);
+  
+      this.frontEndService.userLogin(f.value).subscribe((response) => 
+      {
+        console.log(userInformation);
+  
+          var userCredentials = JSON.stringify(response);
+
+          if(userCredentials.includes('Success')){
+
+            this.saveSession('currentUser',f.controls['email'].value);
+            this.getSession(); 
+        
+            console.log(userCredentials);
+            this.router.navigate(['/movies']);
+          } else {
+          this.errorMessage = 'Incorrect Email/Password credentials';
+          }
+        
+      }, (error) =>{
+        console.log("error: ", error)
+      })
+  }
+
 
 }

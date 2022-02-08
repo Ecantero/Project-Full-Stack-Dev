@@ -89,8 +89,15 @@ export class MoviesPageComponent implements OnInit {
       name: "Western"
     }
   ];
+
   constructor(private frontEndService: FrontEndService,) { 
-    frontEndService.getMovieList(this.pageNum).subscribe(
+    this.getMovies()
+    
+  }
+
+  getMovies(){
+    console.log(this.pageNum)
+    this.frontEndService.getMovieList(this.pageNum).subscribe(
       (movieData)=>{
         // console.log(movieData)
         this.movieList = movieData
@@ -98,11 +105,10 @@ export class MoviesPageComponent implements OnInit {
         // console.log(this.movieList)
       }
     )
-    
   }
+
   searchMovies(){
     // console.log(this.queryString);
-    
     this.genres.forEach(genre => {
       // console.log(genre)
       if(this.queryString.toLowerCase() == genre.name.toLowerCase()){
@@ -163,6 +169,24 @@ export class MoviesPageComponent implements OnInit {
       // console.log(dummyArray)
       this.movieList = dummyArray
   }
+
+
+  pageBack(){
+    if(this.pageNum === 1){
+      this.pageNum =1
+      this.getMovies()
+    }else{
+      this.pageNum = this.pageNum - 1;
+      this.getMovies()
+    }
+  }
+
+  pageNext(){
+    console.log("next Button")
+    this.pageNum = this.pageNum+1;
+    this.getMovies()
+  }
+
   ngOnInit(): void {
     
     

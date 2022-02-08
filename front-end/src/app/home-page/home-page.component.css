@@ -9,5 +9,61 @@
     background-image: url("../../assets/movieBanner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+
+    color:#fff;
+
+    display: flex;
+    flex-direction: row;
     
 }
+
+.movie-wheel{
+    width: 60%;
+    padding-left: 30px;
+}
+
+.movie_reel{
+    margin: 0 auto;
+    width: 350px;
+}
+
+.rotate{
+    animation: rotation 5s infinite linear;
+}
+
+.movie_banner_content{
+    width: 40%;
+}
+
+.movie_banner_content h1{
+    font-size: 5rem;
+    -webkit-text-stroke: 1.5px;
+    -webkit-text-stroke-color: black;
+    
+}
+.movie_banner_content h2{
+    font-size: 2rem;
+    -webkit-text-stroke: 1.5px;
+    -webkit-text-stroke-color: black;
+    
+}
+
+.banner{
+  background-color: rgb(3,37,65);
+}
+
+.movie_main_content{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

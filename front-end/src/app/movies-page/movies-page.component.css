@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-right: 15px;
 }
 
 
@@ -60,4 +61,28 @@
     background-color: rgb(8, 70, 121);
 }
 
+.movie_pagination_container{
+    margin: 0 auto;
+    width: 60%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.pageButton{
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgb(3,37,65);
+    color: #ffff;
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.pageButton:hover{
+    background-color: rgb(8, 65, 112);
+   
+}
 

@@ -49,7 +49,7 @@ exports.login = async (req, res) => {
       await client.close();
       console.log(user);
       if (user != null) {
-        if (comparePassword(user.password, password) )  {
+        if (bcrypt.compareSync(password, user.password) )  {
           res.json({
             status: "Success",
             message: "Credentials supplied",

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FrontEndService } from '../services/front-end.service';
 
 @Component({
   selector: 'review-component',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class ReviewComponentComponent implements OnInit {
+  @Input() movieTitle:any;
   stars = [1,2,3,4,5]
   rating=0;
   hoverState=0;
+  reviewString = "";
 
 
-  constructor() { 
+  constructor(private frontEndService: FrontEndService) { 
     
   }
 
@@ -29,6 +32,23 @@ export class ReviewComponentComponent implements OnInit {
   
   updateRating(i:number){
     this.rating = i;
+  }
+
+  sumbitReview() {
+    console.log(`Title: ${this.movieTitle} rating: ${this.rating}, review: ${this.reviewString}`);
+    let item = {
+      username: "Ernesto",
+      title: this.movieTitle,
+      rating: this.rating,
+      review: this.reviewString
+    };
+    this.frontEndService.postReview(item).subscribe({
+      error: (e) => console.log(e),
+      complete: () => {
+        console.log("review has been sent");
+        window.location.reload();
+      },
+    });
   }
 
 }

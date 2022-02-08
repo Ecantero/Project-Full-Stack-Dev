@@ -74,6 +74,31 @@ exports.login = async (req, res) => {
   }
 };
 
+exports.review = async (req, res) => {
+  console.log(`user: ${req.body.username} title: ${req.body.title} rating: ${req.body.rating} review: ${req.body.review}`);
+  try {
+    await client.connect();
+    const insertResult = await reviewCollection.insertOne({});
+    console.log('Inserted documents =>', insertResult);
+  } catch (error) {
+    res.json(error);
+  } finally {
+    await client.close();
+  }
+}
+
+exports.getReview = async (req, res) => {
+  try {
+    await client.connect();
+    const fetchedReviews = await reviewCollection.find({}).toArray();
+    res.json(fetchedReviews);
+  } catch (error) {
+    res.json(error);
+  } finally {
+    await client.close();
+  }
+}
+
 const comparePassword = (passStr1, passStr2) => {
   return bcrypt.compare(passStr1, passStr2)
 };

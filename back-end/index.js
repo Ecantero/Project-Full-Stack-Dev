@@ -46,7 +46,8 @@ app.post("/login", urlencodedParser, routes.login);
 
 app.get("/users", routes.users);
 
-app.post("/review");
+app.get("/getReview", routes.getReview);
+app.post("/review", routes.review);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

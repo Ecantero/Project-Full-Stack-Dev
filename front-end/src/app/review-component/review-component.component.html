@@ -1,6 +1,6 @@
 <section>
     <textarea matInput placeholder="Your Message" 
-        cdkAutosizeMinRows="6" maxlength="300" class="textArea"></textarea>
+        cdkAutosizeMinRows="6" maxlength="300" class="textArea" [(ngModel)]="reviewString"></textarea>
     <div>
         <!-- display the array of stars -->
         <ng-container *ngFor="let star of stars">
@@ -9,4 +9,5 @@
           </app-star>
         </ng-container>
     </div>
+    <button type="submit" (click)="sumbitReview()">Submit Review</button>
 </section>

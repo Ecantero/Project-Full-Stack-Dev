@@ -29,6 +29,14 @@ export class FrontEndService {
     return this.http.post(`${baseUrl}/login`, data);
   }
 
+  postReview(data: any) {
+    return this.http.post(`${baseUrl}/review`, data);
+  }
+
+  getReviews() {
+    return this.http.get(`${baseUrl}/getReview`);
+  }
+
   getMovieData(id: String) {
     return this.http.get(`${movieDBURL}/3/movie/${id}?api_key=${APIKEY}`);
   }
@@ -58,6 +66,4 @@ export class FrontEndService {
   getMovieByGenre(query:number){
     return this.http.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&with_genres=${query}`)
   }
-
-
 }

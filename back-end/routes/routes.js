@@ -49,7 +49,7 @@ exports.login = async (req, res) => {
       await client.close();
       console.log(user);
       if (user != null) {
-        if (bcrypt.compareSync(password, user.password) )  {
+        if (comparePassword(password, user.password) )  {
           res.json({
             status: "Success",
             message: "Credentials supplied",
@@ -78,7 +78,12 @@ exports.review = async (req, res) => {
   console.log(`user: ${req.body.username} title: ${req.body.title} rating: ${req.body.rating} review: ${req.body.review}`);
   try {
     await client.connect();
-    const insertResult = await reviewCollection.insertOne({});
+    const insertResult = await reviewCollection.insertOne({
+      username: req.body.username,
+      title: req.body.title,
+      rating: req.body.rating,
+      review: req.body.review
+    });
     console.log('Inserted documents =>', insertResult);
   } catch (error) {
     res.json(error);
@@ -100,5 +105,5 @@ exports.getReview = async (req, res) => {
 }
 
 const comparePassword = (passStr1, passStr2) => {
-  return bcrypt.compare(passStr1, passStr2)
+  return bcrypt.compareSync(passStr1, passStr2)
 };

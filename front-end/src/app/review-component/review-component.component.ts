@@ -13,6 +13,7 @@ export class ReviewComponentComponent implements OnInit {
   rating=0;
   hoverState=0;
   reviewString = "";
+  currentUser = sessionStorage.getItem("currentUser");
 
 
   constructor(private frontEndService: FrontEndService) { 
@@ -20,6 +21,7 @@ export class ReviewComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(`User logged in: ${this.currentUser}`);
   }
 
   enter(i:number){
@@ -37,7 +39,7 @@ export class ReviewComponentComponent implements OnInit {
   sumbitReview() {
     console.log(`Title: ${this.movieTitle} rating: ${this.rating}, review: ${this.reviewString}`);
     let item = {
-      username: "Ernesto",
+      username: this.currentUser,
       title: this.movieTitle,
       rating: this.rating,
       review: this.reviewString

@@ -1,13 +1,14 @@
-<p>review-list works!</p>
+<p>Reviews for {{movieTitle}}</p>
 
 <div *ngFor="let review of reviews">
     <p>
         Username: {{review.username}}
     </p>
     <p>
-        rating: {{review.rating}}
+        rating: {{review.rating}} stars
     </p>
     <p>
-        review: {{review.reviewString}}
+        review: {{review.review}}
     </p>
+    <br>
 </div>

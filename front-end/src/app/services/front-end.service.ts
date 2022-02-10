@@ -29,6 +29,10 @@ export class FrontEndService {
     return this.http.post(`${baseUrl}/login`, data);
   }
 
+  delete(data: any) {
+    return this.http.delete(`${baseUrl}+ /delete`, data)
+  }
+
   postReview(data: any) {
     return this.http.post(`${baseUrl}/review`, data);
   }

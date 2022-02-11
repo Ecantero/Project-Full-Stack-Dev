@@ -6,6 +6,7 @@ import { MoviesPageComponent } from './movies-page/movies-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import {MovieSynopsisComponent} from './movie-synopsis/movie-synopsis.component'
+import { ReviewListAdminComponent } from './review-list-admin/review-list-admin.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'movies',component:MoviesPageComponent},
   {path: 'login', component:LoginPageComponent},
   {path: 'signup', component: SignupPageComponent},
+  {path: 'allReviews', component: ReviewListAdminComponent},
   {path:'movies/:id',component:MovieSynopsisComponent}
 ];
 

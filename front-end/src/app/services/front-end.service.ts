@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:3000';
 const movieDBURL = 'https://api.themoviedb.org';
@@ -25,6 +26,11 @@ export class FrontEndService {
     return this.http.get(baseUrl + '/users');
   }
 
+  getOneUser(data: any) {
+    // console.log(`data being passed thru: ${data}`);
+    return this.http.get(`${baseUrl}/user/${data}`);
+  }
+
   userLogin(data: any) {
     return this.http.post(`${baseUrl}/login`, data);
   }
@@ -35,6 +41,10 @@ export class FrontEndService {
 
   getReviews() {
     return this.http.get(`${baseUrl}/getReview`);
+  }
+
+  deleteReview(data: any) {
+    return this.http.get(`${baseUrl}/deleteReview/${data}`);
   }
 
   getMovieData(id: String) {

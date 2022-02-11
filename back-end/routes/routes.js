@@ -31,6 +31,25 @@ exports.users = async (req, res) => {
   }
 };
 
+exports.getUser = async (req, res) => {
+  let userEmail = req.params.id;
+  // console.log(`body: ${req.body.id}`);
+  // console.log(`param: ${req.params.id}`);
+  // console.log(userEmail);
+  try {
+    await client.connect();
+    const getUser = await collection.findOne({ email: userEmail });
+    await client.close();
+    res.json(getUser);
+    // console.log(getUser);
+    // console.log("user has been recieved");
+  } catch (error) {
+    res.json(error);
+  } finally {
+    // await client.close();
+  }
+};
+
 exports.login = async (req, res) => {
   try {
     let { email, password } = req.body;
@@ -97,6 +116,21 @@ exports.getReview = async (req, res) => {
     await client.connect();
     const fetchedReviews = await reviewCollection.find({}).toArray();
     res.json(fetchedReviews);
+  } catch (error) {
+    res.json(error);
+  } finally {
+    await client.close();
+  }
+}
+
+exports.deleteReview = async (req, res) => {
+  let id = `ObjectId("${req.params.id}")`;
+  console.log(id);
+  // ObjectId("6202951ea2feb06ced2488d2")
+  try {
+    await client.connect();
+    await reviewCollection.deleteOne({_id: id});
+    console.log("review delete");
   } catch (error) {
     res.json(error);
   } finally {

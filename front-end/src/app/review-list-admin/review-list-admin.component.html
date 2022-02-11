@@ -1,0 +1,11 @@
+<p>review-list-admin works!</p>
+
+<div *ngFor="let review of reviews; let i = index">
+  <!-- <p id="id" hidden="true">{{review._id}}</p> -->
+  <p>Username: {{ review.username }}</p>
+  <p>Title: {{ review.title }}</p>
+  <p>rating: {{ review.rating }} stars</p>
+  <p>review: {{ review.review }}</p>
+  <br />
+  <button (click)="deleteReview(review._id)">Delete Review</button>
+</div>

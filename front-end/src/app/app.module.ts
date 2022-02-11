@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { ReviewComponentComponent } from './review-component/review-component.component';
 import { StarComponent } from './star/star.component';
 import { ReviewListComponent } from './review-list/review-list.component';
+import { ReviewListAdminComponent } from './review-list-admin/review-list-admin.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ReviewListComponent } from './review-list/review-list.component';
     ReviewComponentComponent,
     StarComponent,
     ReviewListComponent,
+    ReviewListAdminComponent,
   ],
   imports: [
     BrowserModule,

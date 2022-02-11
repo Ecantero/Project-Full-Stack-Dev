@@ -18,6 +18,7 @@ import { ReviewComponentComponent } from './review-component/review-component.co
 import { StarComponent } from './star/star.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { ReviewListAdminComponent } from './review-list-admin/review-list-admin.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ReviewListAdminComponent } from './review-list-admin/review-list-admin.
     StarComponent,
     ReviewListComponent,
     ReviewListAdminComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,

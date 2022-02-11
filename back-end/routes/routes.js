@@ -18,6 +18,21 @@ exports.home = (req, res) => {
   res.send({ name: "Ernesto" });
 };
 
+// exports.delete =  async (req, res) =>{
+ 
+//   try {
+//     await client.connect();
+//     const user = await collection.deleteOne({_id: new ObjectId(req.params.id)});
+//     //{"_id": ObjectId("4d512b45cc9374271b02ec4f")}
+//     res.json({status: 'deleted'});
+//     // console.log(fetchedUsers);
+//   } catch (error) {
+//     res.json(error);
+//   } finally {
+//     await client.close();
+//   }
+// };
+
 exports.users = async (req, res) => {
   try {
     await client.connect();

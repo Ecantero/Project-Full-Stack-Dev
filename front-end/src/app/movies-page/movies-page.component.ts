@@ -96,7 +96,7 @@ export class MoviesPageComponent implements OnInit {
   }
 
   getMovies(){
-    console.log(this.pageNum)
+    // console.log(this.pageNum)
     this.frontEndService.getMovieList(this.pageNum).subscribe(
       (movieData)=>{
         // console.log(movieData)
@@ -154,12 +154,9 @@ export class MoviesPageComponent implements OnInit {
       // console.log(actor)
 
       if(actor.media_type === "movie"){
-        console.log('')
       }else if(actor.media_type ==='person'){
           const associatedMovies:any[] = actor.known_for
-          // console.log(associatedMovies)
         associatedMovies.forEach((actorData:any) => {
-            // console.log(actorData)
             dummyArray.push(actorData)
           });
           
@@ -182,7 +179,6 @@ export class MoviesPageComponent implements OnInit {
   }
 
   pageNext(){
-    console.log("next Button")
     this.pageNum = this.pageNum+1;
     this.getMovies()
   }

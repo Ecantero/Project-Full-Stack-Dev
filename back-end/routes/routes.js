@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
-const { MongoClient, ObjectId } = require("mongodb");
+const { ObjectID } = require("bson");
+const { MongoClient, ObjectId, mongodb } = require("mongodb");
 const url =
   "mongodb+srv://movietest:fullstack1@cluster0.kljv5.mongodb.net/userDB?authSource=admin&replicaSet=atlas-opq1t6-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true";
 // const url = 'mongodb://localhost:27017';
@@ -19,7 +20,7 @@ exports.home = (req, res) => {
 };
 
 // exports.delete =  async (req, res) =>{
- 
+
 //   try {
 //     await client.connect();
 //     const user = await collection.deleteOne({_id: new ObjectId(req.params.id)});
@@ -83,7 +84,7 @@ exports.login = async (req, res) => {
       await client.close();
       console.log(user);
       if (user != null) {
-        if (comparePassword(password, user.password) )  {
+        if (comparePassword(password, user.password)) {
           res.json({
             status: "Success",
             message: "Credentials supplied",
@@ -109,22 +110,24 @@ exports.login = async (req, res) => {
 };
 
 exports.review = async (req, res) => {
-  console.log(`user: ${req.body.username} title: ${req.body.title} rating: ${req.body.rating} review: ${req.body.review}`);
+  console.log(
+    `user: ${req.body.username} title: ${req.body.title} rating: ${req.body.rating} review: ${req.body.review}`
+  );
   try {
     await client.connect();
     const insertResult = await reviewCollection.insertOne({
       username: req.body.username,
       title: req.body.title,
       rating: req.body.rating,
-      review: req.body.review
+      review: req.body.review,
     });
-    console.log('Inserted documents =>', insertResult);
+    console.log("Inserted documents =>", insertResult);
   } catch (error) {
     res.json(error);
   } finally {
     await client.close();
   }
-}
+};
 
 exports.getReview = async (req, res) => {
   try {
@@ -136,7 +139,7 @@ exports.getReview = async (req, res) => {
   } finally {
     await client.close();
   }
-}
+};
 
 exports.deleteReview = async (req, res) => {
   let id = `ObjectId("${req.params.id}")`;
@@ -144,15 +147,18 @@ exports.deleteReview = async (req, res) => {
   // ObjectId("6202951ea2feb06ced2488d2")
   try {
     await client.connect();
-    await reviewCollection.deleteOne({_id: id});
+    const deleteTest = await reviewCollection.deleteOne({
+      _id: ObjectID(req.params.id),
+    });
+    client.close();
     console.log("review delete");
   } catch (error) {
     res.json(error);
   } finally {
-    await client.close();
+    // client.close();
   }
-}
+};
 
 const comparePassword = (passStr1, passStr2) => {
-  return bcrypt.compareSync(passStr1, passStr2)
+  return bcrypt.compareSync(passStr1, passStr2);
 };

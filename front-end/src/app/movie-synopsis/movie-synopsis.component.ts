@@ -20,10 +20,6 @@ export class MovieSynopsisComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.route.queryParams.subscribe(params =>{
-    //   console.log(params);
-    //   this.queryID = params['id'];
-    // })
     const routeParams = this.route.snapshot.paramMap;
     this.queryID = Number(routeParams.get('id'))
 

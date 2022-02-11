@@ -7,13 +7,12 @@ import { FrontEndService } from '../services/front-end.service';
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent implements OnInit {
-  
+
 
   constructor(private frontEndService:FrontEndService) { }
 
   ngOnInit() {
-  
-
+    
     this.frontEndService.getUsers().subscribe((response) => {
       let userDatabase = Object.values(response);
       console.log(userDatabase);
@@ -23,6 +22,24 @@ export class AdminPageComponent implements OnInit {
         this.fillUserTable(fullName, user.email);
         let deleteButton = document.getElementById('deleteButton');
         deleteButton!.id = user._id;
+        // deleteButton?.addEventListener('click', function(event : Event) : string{
+        //   let parseValue = event.target as HTMLInputElement;
+        //   let value = parseValue.value;
+          
+        //   console.log(value);
+        //   return(event.target as HTMLInputElement).value;
+        // });
+         deleteButton?.addEventListener('click', function(e){
+           let target = e.target;
+           let targetString = JSON.stringify(target);
+           let subStringTarget = targetString.substring(13);
+
+           
+           console.log(targetString);
+
+         });
+        
+      
       
       })
      
@@ -50,7 +67,6 @@ export class AdminPageComponent implements OnInit {
     let deleteButton = document.createElement('button');
     deleteButton.textContent = 'delete';
     userDelete.append(deleteButton);
-    //userDelete.addEventListener('click', this.deleteUser);
     deleteButton.id = "deleteButton";
     
 
@@ -58,8 +74,9 @@ export class AdminPageComponent implements OnInit {
     table?.append(tableBodyRow);
   
   }
-  deleteUser(){
-    console.log();
+  deleteUser(userID : string){
+    
+    
   }
   
   

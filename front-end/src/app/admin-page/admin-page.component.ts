@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { ConsoleReporter } from 'jasmine';
 import { FrontEndService } from '../services/front-end.service';
 
 @Component({
@@ -21,32 +22,18 @@ export class AdminPageComponent implements OnInit {
         let fullName = user.fname + " " + user.lname;
         this.fillUserTable(fullName, user.email);
         let deleteButton = document.getElementById('deleteButton');
-        deleteButton!.id = user._id;
-        // deleteButton?.addEventListener('click', function(event : Event) : string{
-        //   let parseValue = event.target as HTMLInputElement;
-        //   let value = parseValue.value;
-          
-        //   console.log(value);
-        //   return(event.target as HTMLInputElement).value;
-        // });
-         deleteButton?.addEventListener('click', function(e){
-           let target = e.target;
-           let targetString = JSON.stringify(target);
-           let subStringTarget = targetString.substring(13);
+        deleteButton!.id = user.email;
 
-           
-           console.log(targetString);
+        deleteButton?.addEventListener('click', ((event: Event) => {
+        this.deleteUser(event);
+        }) as EventListener);
 
-         });
-        
-      
-      
+
       })
      
     }, (error) =>{
       console.log("error: ", error)
     })
-   
   }
 
 
@@ -74,11 +61,20 @@ export class AdminPageComponent implements OnInit {
     table?.append(tableBodyRow);
   
   }
-  deleteUser(userID : string){
-    
-    
+  deleteUser(event: Event){
+    let target = event.target || event.srcElement || event.currentTarget;
+    let idAttr = (<HTMLElement>event.target).id;
+    console.log(idAttr);
+    alert(`Are you sure you want to delete ${idAttr}?`);
+    // this.frontEndService
+    this.frontEndService.userDelete(idAttr).subscribe((response) => 
+    {
+    console.log('connected')
+      
+    }, (error) =>{
+      console.log("error: ", error)
+    })
+}
   }
   
   
-
-}

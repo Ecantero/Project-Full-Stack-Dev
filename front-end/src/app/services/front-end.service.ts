@@ -35,8 +35,8 @@ export class FrontEndService {
     return this.http.post(`${baseUrl}/login`, data);
   }
 
-  delete(data: any) {
-    return this.http.delete(`${baseUrl}+ /delete`, data)
+  userDelete(data: any) {
+    return this.http.get(`${baseUrl}/delete/${data}`)
   }
 
   postReview(data: any) {

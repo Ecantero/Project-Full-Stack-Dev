@@ -34,6 +34,24 @@ exports.home = (req, res) => {
 //   }
 // };
 
+exports.delete = async (req, res) => {
+  let Email = req.params.id;
+console.log(Email);
+  // ObjectId("6202951ea2feb06ced2488d2")
+  try {
+    await client.connect();
+    const deleteTest = await collection.findOneAndDelete({
+      email: Email
+    });
+    client.close();
+    console.log("review delete");
+  } catch (error) {
+    res.json(error);
+  } finally {
+    // client.close();
+  }
+};
+
 exports.users = async (req, res) => {
   try {
     await client.connect();

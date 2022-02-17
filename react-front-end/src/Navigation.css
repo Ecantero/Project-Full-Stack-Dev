@@ -1,0 +1,29 @@
+.navContainer{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+li{
+    list-style: none;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+li a {
+    text-decoration: none; 
+    font-size: 1.5em;
+}
+li:hover{
+    background-color: #ba9ce4;
+}
+a:visited {
+    color: white;
+  }

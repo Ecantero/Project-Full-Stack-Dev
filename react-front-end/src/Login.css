@@ -1,0 +1,17 @@
+section{
+    background-color: #290454;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logoSmall{
+    width:10%;
+    height: 10%;
+    padding: 15px;
+}
+.title{
+    font-size: 3em;
+    padding: 25px 15px 15px 15px;
+}

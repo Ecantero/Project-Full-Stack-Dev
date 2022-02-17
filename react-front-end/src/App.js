@@ -4,6 +4,7 @@ import { BrowserRouter as Router, useRoutes, Route, Routes } from "react-router-
 import Homepage from './Homepage';
 import  Login  from './Login';
 import  Navigation  from './Navigation';
+import Footer from './Footer';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const AppWrapper = () =>{
     <Router>
       <Navigation/>
       <App/>
+      <Footer/>
     </Router>
   )
 }

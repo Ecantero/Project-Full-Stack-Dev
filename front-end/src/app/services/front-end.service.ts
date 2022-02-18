@@ -14,6 +14,7 @@ export class FrontEndService {
   constructor(private http: HttpClient) {}
   testURL = `https://api.themoviedb.org/3/movie/550?api_key=${APIKEY}`;
 
+
   getTestData() {
     return this.http.get(this.testURL);
   }

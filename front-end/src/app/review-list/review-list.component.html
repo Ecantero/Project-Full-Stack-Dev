@@ -1,4 +1,4 @@
-<p>Reviews for {{movieTitle}}</p>
+<!-- <p>Reviews for {{movieTitle}}</p>
 
 <div class="container" *ngFor="let review of reviews">
     <p>
@@ -11,4 +11,46 @@
         review: {{review.review}}
     </p>
     <br>
-</div>
+</div> -->
+
+<div class="userContainer">
+    <h1>Delete Reviews</h1>
+    <table class="reviewTable">
+      <thead class="reviewTableHead">
+        <tr class="reviewTableHeadRow">
+          <th>Username</th>
+          <th>Movie</th>
+          <th>Rating</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody class="reviewTableBody">
+        <!-- <div class="loader"> -->
+        <tr
+          *ngFor="
+            let review of reviews
+              | paginate
+                : {
+                    itemsPerPage: dataSize,
+                    currentPage: pageNum,
+                    totalItems: count
+                  };
+            let i = index
+          "
+          [class.active]="i == pageNum"
+        >
+          <td>{{ review.username }}</td>
+          <td>{{ review.title }}</td>
+          <td class="review">{{ review.rating }}</td>
+          <td>{{ review.review }}</td>
+        </tr>
+        <!-- </div> -->
+      </tbody>
+    </table>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="nextPage($event)"
+    >
+    </pagination-controls>
+  </div>

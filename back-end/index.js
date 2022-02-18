@@ -43,14 +43,14 @@ app.use(
 app.get("/home", routes.home);
 
 app.post("/login", urlencodedParser, routes.login);
+app.get("/logout", routes.logout);
 
 app.get("/users", routes.users);
-
 app.get("/user/:id", routes.getUser);
+app.get("/deleteUser/:id", routes.deleteUser);
 
 app.get("/getReview", routes.getReview);
 app.post("/review", routes.review);
-
 app.get("/deleteReview/:id", routes.deleteReview);
 
 const PORT = process.env.PORT || 3000;

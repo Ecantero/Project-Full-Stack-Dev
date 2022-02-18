@@ -23,7 +23,7 @@
     /* background-color: red; */
 }
 
-.nav_option a{
+.nav_option a,.nav_option div{
     font-size: 30px;
     font-weight: 800;
     text-decoration: none;
@@ -32,6 +32,6 @@
     transition: color .2s ease;
 }
 
-.nav_option a:hover{
+.nav_option a:hover, .nav_option div:hover{
     color: rgb(236, 236, 62);
 }

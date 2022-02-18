@@ -1,31 +1,44 @@
 <div class="adminPage">
-      
-
-        <div class="userContainer">
-          <h1>Delete Users</h1>
-          <table class="userTable">
-            <thead class="userTableHead">
-              <tr class="userTableHeadRow">
-                <th>Name</th>
-                <th>Email</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody class="userTableBody"><div class="loader"></div></tbody>
-          </table>
-        </div>
-    
   <div class="userContainer">
-      <h1>Delete Reviews</h1>
-      <table class="reviewTable">
-        <thead class="reviewTableHead">
-          <tr class="reviewTableHeadRow">
-            <th>Name</th>
-            <th>Contents</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody class="reviewTableBody"><div class="loader"></div></tbody>
-      </table>
+    <h1>Delete Users</h1>
+    <table class="userTable">
+      <thead class="userTableHead">
+        <tr class="userTableHeadRow">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody class="userTableBody">
+        <!-- <div class="loader"> -->
+        <tr
+          *ngFor="
+            let user of Users
+              | paginate
+                : {
+                    itemsPerPage: dataSize,
+                    currentPage: pageNum,
+                    totalItems: count
+                  };
+            let i = index
+          "
+          [class.active]="i == pageNum"
+        >
+          <td>{{ user.fname }} {{ user.lname }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button (click)="deleteUser(user._id)">Delete Review</button>
+          </td>
+        </tr>
+        <!-- </div> -->
+      </tbody>
+    </table>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="nextUserPage($event)"
+    >
+    </pagination-controls>
   </div>
 </div>
+<app-review-list-admin></app-review-list-admin>

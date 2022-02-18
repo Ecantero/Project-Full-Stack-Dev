@@ -8,7 +8,9 @@ import { FrontEndService } from '../services/front-end.service';
 })
 export class ReviewListAdminComponent implements OnInit {
   reviews: any = [];
-  id: any;
+  userPageNum = 1;
+  count = 0;
+  dataSize = 10;
 
   constructor(private FrontEndService: FrontEndService) {}
 
@@ -25,6 +27,11 @@ export class ReviewListAdminComponent implements OnInit {
       error: (e) => console.log(e),
       complete: () => console.log('all reviews have been retrieved'),
     });
+  }
+
+  nextPage(event: any) {
+    this.userPageNum = event;
+    this.retrieveReviews();
   }
 
   deleteReview(movieId: any): void {

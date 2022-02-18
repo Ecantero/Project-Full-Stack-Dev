@@ -1,11 +1,55 @@
-<p>review-list-admin works!</p>
-
-<div *ngFor="let review of reviews; let i = index">
-  <!-- <p id="id" hidden="true">{{review._id}}</p> -->
+<!-- <div *ngFor="let review of reviews; let i = index">
+  <p id="id" hidden="true">{{review._id}}</p>
   <p>Username: {{ review.username }}</p>
   <p>Title: {{ review.title }}</p>
   <p>rating: {{ review.rating }} stars</p>
   <p>review: {{ review.review }}</p>
   <br />
   <button (click)="deleteReview(review._id)">Delete Review</button>
+</div> -->
+
+<div class="userContainer">
+  <h1>Delete Reviews</h1>
+  <table class="reviewTable">
+    <thead class="reviewTableHead">
+      <tr class="reviewTableHeadRow">
+        <th>Username</th>
+        <th>Movie</th>
+        <th>Rating</th>
+        <th>Review</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody class="reviewTableBody">
+      <!-- <div class="loader"> -->
+      <tr
+        *ngFor="
+          let review of reviews
+            | paginate
+              : {
+                  itemsPerPage: dataSize,
+                  currentPage: userPageNum,
+                  totalItems: count
+                };
+          let i = index
+        "
+        [class.active]="i == userPageNum"
+      >
+        <td>{{ review.username }}</td>
+        <td>{{ review.title }}</td>
+        <td class="review">{{ review.rating }}</td>
+        <td>{{ review.review }}</td>
+        <td>
+          <button (click)="deleteReview(review._id)">Delete Review</button>
+        </td>
+      </tr>
+      <!-- </div> -->
+    </tbody>
+  </table>
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="nextPage($event)"
+  >
+  </pagination-controls>
 </div>

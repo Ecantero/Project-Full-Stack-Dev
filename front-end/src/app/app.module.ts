@@ -19,6 +19,7 @@ import { StarComponent } from './star/star.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { ReviewListAdminComponent } from './review-list-admin/review-list-admin.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { NgxPaginationModule } from "ngx-pagination"
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

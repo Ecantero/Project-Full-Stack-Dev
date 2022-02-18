@@ -9,10 +9,18 @@ import { FrontEndService } from '../services/front-end.service';
 export class ReviewListComponent implements OnInit {
   @Input() movieTitle: any;
   reviews: any = [];
+  pageNum = 1;
+  count = 0;
+  dataSize = 10;
 
   constructor(private FrontEndService: FrontEndService) {}
 
   ngOnInit(): void {
+    this.retrieveReviews();
+  }
+
+  nextPage(event: any) {
+    this.pageNum = event;
     this.retrieveReviews();
   }
 

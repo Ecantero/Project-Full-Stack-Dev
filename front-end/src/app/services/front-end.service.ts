@@ -23,7 +23,7 @@ export class FrontEndService {
   }
 
   getUsers() {
-    return this.http.get(baseUrl + '/users');
+    return this.http.get(`${baseUrl}/users`);
   }
 
   getOneUser(data: any) {
@@ -35,8 +35,12 @@ export class FrontEndService {
     return this.http.post(`${baseUrl}/login`, data);
   }
 
-  delete(data: any) {
-    return this.http.delete(`${baseUrl}+ /delete`, data)
+  userLogout() {
+    return this.http.get(`${baseUrl}/logout`);
+  }
+
+  deleteUser(data: any) {
+    return this.http.get(`${baseUrl}/deleteUser/${data}`)
   }
 
   postReview(data: any) {

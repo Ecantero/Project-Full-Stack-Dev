@@ -4,3 +4,56 @@
     background-color: aliceblue;
     flex-direction: column;
 }
+
+.review{
+    white-space: pre-wrap;
+  }
+  
+  .userContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    /* height: 800px; */
+    border-collapse: collapse;
+    overflow: auto;
+  }
+  .userContainer td,
+  .userContainer th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  /* .userContainer tr:nth-child(even){
+      background-color: #f2f2f2;
+  }
+  .userContainer tr:hover {
+      background-color: #ddd;
+  } */
+  
+  .userContainer th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #071053;
+    color: white;
+  }
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: none;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

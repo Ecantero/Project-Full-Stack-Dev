@@ -19,31 +19,24 @@ exports.home = (req, res) => {
   res.send({ name: "Ernesto" });
 };
 
-// exports.delete =  async (req, res) =>{
-
-//   try {
-//     await client.connect();
-//     const user = await collection.deleteOne({_id: new ObjectId(req.params.id)});
-//     //{"_id": ObjectId("4d512b45cc9374271b02ec4f")}
-//     res.json({status: 'deleted'});
-//     // console.log(fetchedUsers);
-//   } catch (error) {
-//     res.json(error);
-//   } finally {
-//     await client.close();
-//   }
-// };
+exports.logout = async (req, res) => {
+  try {
+    await client.close();
+  } catch (error) {
+    res.json(error);
+  }
+}
 
 exports.users = async (req, res) => {
   try {
     await client.connect();
-    const fetchedUsers = await collection.find({}).toArray();
+    const fetchedUsers = await collection.find().toArray();
     res.json(fetchedUsers);
     // console.log(fetchedUsers);
   } catch (error) {
     res.json(error);
   } finally {
-    await client.close();
+    // await client.close();
   }
 };
 
@@ -55,10 +48,25 @@ exports.getUser = async (req, res) => {
   try {
     await client.connect();
     const getUser = await collection.findOne({ email: userEmail });
-    await client.close();
+    // await client.close();
     res.json(getUser);
     // console.log(getUser);
     // console.log("user has been recieved");
+  } catch (error) {
+    res.json(error);
+  } finally {
+    // await client.close();
+  }
+};
+
+exports.deleteUser = async (req, res) => {
+  try {
+    await client.connect();
+    const user = await collection.deleteOne({
+      _id: new ObjectId(req.params.id),
+    });
+    client.close();
+    console.log("user deleted");
   } catch (error) {
     res.json(error);
   } finally {
@@ -125,33 +133,30 @@ exports.review = async (req, res) => {
   } catch (error) {
     res.json(error);
   } finally {
-    await client.close();
+    // await client.close();
   }
 };
 
 exports.getReview = async (req, res) => {
   try {
     await client.connect();
-    const fetchedReviews = await reviewCollection.find({}).toArray();
+    const fetchedReviews = await reviewCollection.find().toArray();
     res.json(fetchedReviews);
   } catch (error) {
     res.json(error);
   } finally {
-    await client.close();
+    // await client.close();
   }
 };
 
 exports.deleteReview = async (req, res) => {
-  let id = `ObjectId("${req.params.id}")`;
-  console.log(id);
-  // ObjectId("6202951ea2feb06ced2488d2")
   try {
     await client.connect();
     const deleteTest = await reviewCollection.deleteOne({
       _id: ObjectID(req.params.id),
     });
     client.close();
-    console.log("review delete");
+    console.log("review deleted");
   } catch (error) {
     res.json(error);
   } finally {

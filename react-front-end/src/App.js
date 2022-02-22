@@ -4,6 +4,7 @@ import { BrowserRouter as Router, useRoutes, Route, Routes } from "react-router-
 import Homepage from './Homepage';
 import  Login  from './Login';
 import  Navigation  from './Navigation';
+import Details from './components/Details';
 import Footer from './Footer';
 
 
@@ -18,6 +19,13 @@ const App = () => {
   
         path: "/login",
         element: <Login />
+     
+   }
+   ,
+   {
+  
+        path: "/details",
+        element: <Details />
      
    }
   ]);

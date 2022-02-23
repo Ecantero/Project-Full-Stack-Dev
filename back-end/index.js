@@ -3,7 +3,11 @@ const bodyParser = require("body-parser");
 const expressSession = require("express-session");
 const routes = require("./routes/routes");
 // const cors = require("cors");
-const path = require("path");
+const { ApolloServer } = require("apollo-server-express");
+const typeDefs = require("./data/schema");
+const resolvers = require("./data/resolvers");
+
+const server = new ApolloServer({ typeDefs, resolvers });
 
 const app = express();
 
@@ -21,7 +25,7 @@ app.use((req, res, next) => {
     "Origin, X-Requested-With, Content-Type, Accept, x-client-key, x-client-token, x-client-secret, Authorization"
   );
   next();
-})
+});
 
 var urlencodedParser = bodyParser.urlencoded({
   extended: true,
@@ -54,6 +58,12 @@ app.post("/review", routes.review);
 app.get("/deleteReview/:id", routes.deleteReview);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is up and running on port ${PORT}.`);
+
+server.start().then((res) => {
+  server.applyMiddleware({ app });
+  app.listen(PORT, () => {
+    console.log(
+      `Server is up and running on port ${PORT} ${server.graphqlPath}.`
+    );
+  });
 });

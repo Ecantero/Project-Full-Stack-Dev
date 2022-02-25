@@ -10,7 +10,6 @@ function Movies() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [movies, setMovies] = useState([]);
 
-    
     // Note:  the empty array means the useEffect will run like componentDidMount()
     useEffect(() =>{
        

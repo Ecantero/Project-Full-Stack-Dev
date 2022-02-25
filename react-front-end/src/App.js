@@ -24,7 +24,7 @@ const App = () => {
    ,
    {
   
-        path: "/details",
+        path: "/details/:id",
         element: <Details />
      
    }

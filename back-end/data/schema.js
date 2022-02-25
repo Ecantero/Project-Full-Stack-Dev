@@ -3,13 +3,13 @@
 
 const typeDefs = `
     type Query{
-        getReview(title:String):Review
+        getReview(id:ID): Review
         getUsers:[User]
         getAllReviews:[Review]
     }
 
     type Review{
-        id:ID
+        _id:ID
         username: String
         title: String
         rating: Int
@@ -17,7 +17,7 @@ const typeDefs = `
     }
 
     type User{
-        id:ID
+        _id: ID
         fname: String
         lname: String
         street: String
@@ -40,7 +40,7 @@ const typeDefs = `
 
 
     type Mutation{
-        addReview(input:ReviewInput): Review
+        addReview(input:ReviewInput): String
         deleteReview(id: ID!): String
         deleteUser(id: ID!):String
     }

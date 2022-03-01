@@ -145,6 +145,54 @@ section{
 
 }
 
+/* -------------Movie Page------------ */
+.movieDetails{
+    width: 100vw;
+    height: 100vh;
+    background-color: #290454;
+    color: white;
+    padding: 70px;
+}
+/* .movieDetailsContainer{
+    background-color: rgba(255, 255, 255, .15);  
+    backdrop-filter: blur(5px);
+    width: 90vw;
+    height: 90vh;
+    border-radius: 15px;
+    padding: 20px;
+} */
+.movieTitle{
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0px 0px 10px 0px;
+}
+.movieGenres{
+    display: flex;
+    flex-direction: row;
+    margin-left: -5px;
+    padding: 0px 0px 10px 0px;
+}
+.movieGenres > div {
+    margin: 5px;
+    background-color: #9c88b3;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+.movieTagline{
+    font-style: italic;
+    padding: 0px 0px 5px 0px;
+
+}
+.movieOverview{
+    display: flex;
+    flex-direction: row;
+}
+.movieOverview > div{
+    width: 500px;
+    flex-wrap: wrap;
+    margin: 10px;
+}
 
 /* -------------Footer------------- */
 

@@ -63,6 +63,7 @@ const resolvers = {
     },
 
     addReview: async (root, { input }) => {
+      console.log(input);
       await client.connect();
       let review = {
         username: input.username,

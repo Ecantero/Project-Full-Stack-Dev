@@ -19,13 +19,23 @@ function Details() {
   
    return(
        <div className='movieDetails'>
-            <div className='movieTitle'>{movies?.title}</div>
-            <div className='movieGenres'>{movies?.genres[0].name} {movies?.genres[1].name} {movies?.genres[2].name} {movies?.genres[3].name}</div>
-            <div className='movieTagline'>{movies?.tagline}</div>
-            <img src={IMG_API + movies?.poster_path} alt={movies?.title}/>
-            <div>{movies?.overview}</div>
-            <div>Actors</div>
-            <div>{movies?.actor}</div>
+           <div className='movieDetailsContainer'>
+                <div className='movieTitle'>{movies?.title}</div>
+                <div className='movieGenres'>
+                    <div>{movies?.genres[0].name} </div>
+                    <div>{movies?.genres[1].name}</div>
+                    <div>{movies?.genres[2].name}</div> 
+                    <div>{movies?.genres[3].name}</div> 
+                </div>
+                <div className='movieTagline'>"{movies?.tagline}"</div>
+                <div className='movieOverview'>
+                    <img src={IMG_API + movies?.poster_path} alt={movies?.title}/> 
+                    <div>{movies?.overview}</div>
+                </div> 
+
+                <div>Actors</div>
+                <div>{movies?.actor}</div>
+            </div>
         </div>
    );
 

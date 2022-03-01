@@ -145,6 +145,22 @@ section{
 
 }
 
+/* -------------Movie Page------------ */
+.movieDetails{
+    width: 100vw;
+    height: 100vh;
+    background-color: #290454;
+    color: white;
+}
+.movieTitle{
+    font-weight: bold;
+}
+.movieGenres{
+
+}
+.movieTagline{
+
+}
 
 /* -------------Footer------------- */
 

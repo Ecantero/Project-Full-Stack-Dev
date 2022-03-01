@@ -14,7 +14,14 @@ const reviewCollection = db2.collection("Review/Rating");
 
 const resolvers = {
   Query: {
-    getReview: ({ title }) => {},
+    getReview: async (root, { id }) => {
+      await client.connect();
+      const getOneReview = await reviewCollection.findOne({
+        _id: ObjectId(id),
+      });
+      client.close();
+      return getOneReview;
+    },
 
     getUsers: async () => {
       await client.connect();
@@ -35,11 +42,40 @@ const resolvers = {
   },
 
   Mutation: {
-    deleteReview: () => {},
+    deleteReview: async (root, { id }) => {
+      await client.connect();
+      const deleteReview = await reviewCollection.findOneAndDelete({
+        _id: ObjectId(id),
+      });
+      client.close();
 
-    deleteUser: () => {},
+      return "Review has been deleted";
+    },
 
-    addReview: (root, { input }) => {},
+    deleteUser: async (root, { id }) => {
+      await client.close();
+      const deleteUser = await reviewCollection.findOneAndDelete({
+        _id: ObjectId(id),
+      });
+      client.close();
+
+      return "User has been deleted";
+    },
+
+    addReview: async (root, { input }) => {
+      await client.connect();
+      let review = {
+        username: input.username,
+        title: input.title,
+        rating: input.rating,
+        review: input.review,
+      };
+
+      const addReview = await reviewCollection.insertOne(review);
+      client.close();
+
+      return "Your review has been posted!";
+    },
   },
 };
 

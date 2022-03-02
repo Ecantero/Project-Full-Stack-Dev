@@ -24,15 +24,15 @@ const GET_ALL_REVIEWS = gql`
 `;
 
 const GET_ONE_REVEIW = gql`
-  query Query($getReviewId: ID) {
-    getReview(id: $getReviewId) {
-      _id
-      username
-      title
-      rating
-      review
-    }
+  uery Query($title: String) {
+  getReview(title: $title) {
+    username
+    title
+    rating
+    review
+    _id
   }
+}
 `;
 
 const ADD_REVIEW = gql`
@@ -59,7 +59,7 @@ function Test() {
   //   // get a reivew by id or by parameter
   //   const getOneReview = useQuery(GET_ONE_REVEIW, {
   //     variables: {
-  //       getReviewId: "620d1f12d69005a869d20be3",
+  //       title: "Red Notice",
   //     },
   //   });
   //   if (getOneReview.loading) return "...loading";

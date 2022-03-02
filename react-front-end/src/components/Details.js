@@ -4,6 +4,8 @@ import Movie from "./Movie";
 import axios from "axios";
 import useFetch, { fetch } from "./useFetch";
 import { useSearchParams } from "react-router-dom";
+
+import PostReview from "./PostReview";
 // import './Homepage.css';
 
 const windowPathName = window.location.pathname;
@@ -22,16 +24,7 @@ function Details() {
 
   useEffect(() => {
     getData();
-    // refetch();
   }, []);
-
-  // console.log(newFetch)
-
-  //    if(isLoaded) return <h1>LOADING</h1>;
-  //    if(error){
-  //        //refetch();
-  //        console.log(error)
-  //     };
 
   const getData = async () => {
     let data = await fetch(FEATURED_API);
@@ -57,6 +50,9 @@ function Details() {
         <div>Actors</div>
         <div>{movies?.actor}</div>
         {/* <div onClick={refetch}>click me</div> */}
+      </div>
+      <div style={{backgroundColor:"#282c34",width:"50%"}}>
+        <PostReview movieTitle={movies?.title} user={"Dylan"}/>
       </div>
     </div>
   );

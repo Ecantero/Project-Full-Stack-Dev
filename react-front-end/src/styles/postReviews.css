@@ -1,0 +1,23 @@
+.review_box{
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: 20px;
+
+}
+
+
+.review_form{
+    display: flex;
+    flex-direction: column;
+}
+
+.reveiw_stars{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.review_button{
+    width: 50%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 12px;
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Rating from "@mui/material/Rating";
 import { gql, useMutation } from "@apollo/client";
 
 const ADD_REVIEW = gql`
@@ -7,7 +8,7 @@ const ADD_REVIEW = gql`
   }
 `;
 
-function PostReview({movieTitle}) {
+function PostReview({ movieTitle }) {
   const [title, setTitle] = useState("");
   const [username, setUsername] = useState("");
   const [rating, setRating] = useState(0);
@@ -17,8 +18,8 @@ function PostReview({movieTitle}) {
   if (loading) return "... loading";
   if (error) return error.message;
 
-  const addReivewQL = (e) => {
-    e.preventDefault();
+  const addReivewQL = (event) => {
+    event.preventDefault();
     let tempReview = {
       username: username,
       title: title,
@@ -27,14 +28,22 @@ function PostReview({movieTitle}) {
     };
     addReivew({ variables: { input: tempReview } });
   };
+  console.log(rating);
 
   return (
     <div>
-      <form onSubmit={addReivewQL()}>
+      <form onSubmit={addReivewQL}>
         <input
           placeholder=' add your review'
           onChange={(e) => setReview(e.target.value)}></input>
-        <button>Add Review</button>
+        <Rating
+          name='simple-controlled'
+          value={rating}
+          onChange={(event, newValue) => {
+            setRating(newValue);
+          }}
+        />
+        <button type='submit'>Add Review</button>
       </form>
     </div>
   );

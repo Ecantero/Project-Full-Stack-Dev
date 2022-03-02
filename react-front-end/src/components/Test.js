@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery, gql, useMutation } from "@apollo/client";
+import PostReview from "./PostReview";
 
 const GET_ALL_USERS = gql`
   query Query {
@@ -96,6 +97,7 @@ function Test() {
       <div>
         <h1>get all reviews back</h1>
       </div>
+      <PostReview movieTitle={"123"}/>
     </div>
   );
 }

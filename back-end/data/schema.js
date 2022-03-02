@@ -3,7 +3,7 @@
 
 const typeDefs = `
     type Query{
-        getReview(id:ID): Review
+        getReview(title:String): [Review]
         getUsers:[User]
         getAllReviews:[Review]
     }

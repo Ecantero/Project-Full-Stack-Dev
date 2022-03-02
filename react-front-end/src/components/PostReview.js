@@ -1,25 +1,42 @@
-import React, { useState, useEffect } from "react";
-import ReactStars from "react-stars";
+import React, { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 
-function handleReviewSumbit(e) {
-  console.log("data passed");
-}
+const ADD_REVIEW = gql`
+  mutation Mutation($input: ReviewInput) {
+    addReview(input: $input)
+  }
+`;
 
-function PostReview() {
-  //
+function PostReview({movieTitle}) {
+  const [title, setTitle] = useState("");
+  const [username, setUsername] = useState("");
+  const [rating, setRating] = useState(0);
+  const [review, setReview] = useState("");
+
+  const [addReivew, { data, loading, error }] = useMutation(ADD_REVIEW);
+  if (loading) return "... loading";
+  if (error) return error.message;
+
+  const addReivewQL = (e) => {
+    e.preventDefault();
+    let tempReview = {
+      username: username,
+      title: title,
+      rating: rating,
+      review: review,
+    };
+    addReivew({ variables: { input: tempReview } });
+  };
+
   return (
-    <section>
-      <textarea placeholder="Enter your review" maxLength={300}></textarea>
-      <div>
-        <ReactStars
-          count={5}
-          size={24}
-          color2={"#ffd700"}
-          half={false}
-        />
-      </div>
-      {/* <button type="submit" onClick={}>Submit Review</button> */}
-    </section>
+    <div>
+      <form onSubmit={addReivewQL()}>
+        <input
+          placeholder=' add your review'
+          onChange={(e) => setReview(e.target.value)}></input>
+        <button>Add Review</button>
+      </form>
+    </div>
   );
 }
 

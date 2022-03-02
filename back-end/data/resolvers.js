@@ -14,12 +14,14 @@ const reviewCollection = db2.collection("Review/Rating");
 
 const resolvers = {
   Query: {
-    getReview: async (root, { id }) => {
+    getReview: async (root, { title }) => {
+      console.log(title);
       await client.connect();
-      const getOneReview = await reviewCollection.findOne({
-        _id: ObjectId(id),
-      });
+      const getOneReview = await reviewCollection.find({
+        title: title,
+      }).toArray()
       client.close();
+      console.log(getOneReview);
       return getOneReview;
     },
 

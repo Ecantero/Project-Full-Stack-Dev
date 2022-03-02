@@ -43,7 +43,6 @@ function Details() {
                     <div>{movies?.genres[0].name} </div>
                     <div>{movies?.genres[1].name}</div>
                     <div>{movies?.genres[2].name}</div> 
-                    <div>{movies?.genres[3].name}</div> 
                 </div>
                 <div className='movieTagline'>"{movies?.tagline}"</div>
                 <div className='movieOverview'>

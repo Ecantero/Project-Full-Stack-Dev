@@ -27,19 +27,6 @@ function useFetch(url){
 
 export const fetch =(url) => {
     console.log(url)
-    // setIsLoaded(true);
-    // axios.get(url)
-    // .then((response) => {
-    //     //setMovies(response.data);
-    //     response.data
-    //     console.log(response.data);
-    //     console.log(movies);
-    // }).catch((err) => {
-    //     setError(err);
-    // }).finally(() => {
-    //     setIsLoaded(false);
-
-    // });
 
     const promise = axios.get(url);
 

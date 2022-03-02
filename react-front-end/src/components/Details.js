@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Detail from './Detail';
 import Movie from './Movie';
 import axios from 'axios';
-import useFetch from "./useFetch";
+import useFetch,{fetch} from "./useFetch";
 // import './Homepage.css';
 
 const windowPathName = window.location.pathname;
@@ -12,10 +12,28 @@ const FEATURED_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY
 const IMG_API = "https://image.tmdb.org/t/p/w200/";
 
 function Details() {
-   const { movies, isLoaded, error} = useFetch(FEATURED_API);
+    
+//    const { movies, isLoaded, error, refetch} = useFetch(FEATURED_API);
+   const [movies,setMovieDetails] = useState(null);
 
-   if(isLoaded) return <h1>LOADING</h1>;
-   if(error) console.log(error);
+    useEffect(() =>{
+        getData()
+           // refetch();
+        },[])
+
+        // console.log(newFetch)
+
+//    if(isLoaded) return <h1>LOADING</h1>;
+//    if(error){ 
+//        //refetch();
+//        console.log(error)
+//     };
+
+    const getData = async ()=>{
+        let data = await fetch(FEATURED_API)
+        console.log(data.data)
+        setMovieDetails(data.data)
+    }
   
    return(
        <div className='movieDetails'>
@@ -35,9 +53,12 @@ function Details() {
 
                 <div>Actors</div>
                 <div>{movies?.actor}</div>
+                {/* <div onClick={refetch}>click me</div> */}
             </div>
         </div>
    );
+
+  
 
    
     

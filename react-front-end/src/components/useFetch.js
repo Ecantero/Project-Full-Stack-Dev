@@ -5,7 +5,9 @@ function useFetch(url){
     const [movies, setMovies] = useState(null);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    useEffect(() => {
+   
+    
+    const refetch = () => {
         setIsLoaded(true);
         axios.get(url)
         .then((response) => {
@@ -17,8 +19,36 @@ function useFetch(url){
         }).finally(() => {
             setIsLoaded(false);
         });
-    }, [url]); 
+    }
 
-    return{ movies, isLoaded, error}
+    return{ movies, isLoaded, error, refetch}
 }
+
+
+export const fetch =(url) => {
+    console.log(url)
+    // setIsLoaded(true);
+    // axios.get(url)
+    // .then((response) => {
+    //     //setMovies(response.data);
+    //     response.data
+    //     console.log(response.data);
+    //     console.log(movies);
+    // }).catch((err) => {
+    //     setError(err);
+    // }).finally(() => {
+    //     setIsLoaded(false);
+
+    // });
+
+    const promise = axios.get(url);
+
+    const promiseData = promise.then((response)=>response)
+
+    return promiseData   
+
+}
+
+
+
 export default useFetch

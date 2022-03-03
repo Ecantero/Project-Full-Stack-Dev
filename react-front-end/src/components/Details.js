@@ -15,6 +15,7 @@ function Details() {
   //    const { movies, isLoaded, error, refetch} = useFetch(FEATURED_API);
   const [movies, setMovieDetails] = useState(null);
   const [genres, setGenres] = useState([]);
+  const [user, setUser] = useState({});
   const [params] = useSearchParams();
   let id = params.get("movieID");
   console.log(id);
@@ -25,11 +26,17 @@ function Details() {
 
   useEffect(() => {
     getData();
+    // setUserData();
   }, []);
 
+  const setUserData = () => {
+    let user = JSON.parse(localStorage.getItem("login"));
+    setUser(user);
+  };
+  console.log(user);
   const getData = async () => {
     let data = await fetch(FEATURED_API);
-    console.log(data.data);
+    // console.log(data.data);
     setMovieDetails(data.data);
     setGenres(data.data.genres);
   };
@@ -54,7 +61,7 @@ function Details() {
         {/* <div onClick={refetch}>click me</div> */}
       </div>
       <div style={{ backgroundColor: "#282c34", width: "50%" }}>
-        <PostReview movieTitle={movies?.title} user={"Dylan"} />
+        <PostReview movieTitle={movies?.title} user={user} />
       </div>
     </div>
   );

@@ -9,6 +9,8 @@ function Movies() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [movies, setMovies] = useState([]);
+  let data = localStorage.getItem("login");
+  console.log(JSON.parse(data));
 
   // Note:  the empty array means the useEffect will run like componentDidMount()
   useEffect(() => {
@@ -21,7 +23,7 @@ function Movies() {
   }, []);
 
   return (
-    <div className="moviesList">
+    <div className='moviesList'>
       {movies.length > 0 &&
         movies.map((movie) => <Movie key={movie.id} {...movie} />)}
     </div>

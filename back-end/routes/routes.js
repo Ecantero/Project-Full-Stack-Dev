@@ -25,16 +25,16 @@ exports.logout = async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-}
+};
 
 exports.delete = async (req, res) => {
   let Email = req.params.id;
-console.log(Email);
+  console.log(Email);
   // ObjectId("6202951ea2feb06ced2488d2")
   try {
     await client.connect();
     const deleteTest = await collection.findOneAndDelete({
-      email: Email
+      email: Email,
     });
     client.close();
     console.log("review delete");
@@ -114,6 +114,7 @@ exports.login = async (req, res) => {
           res.json({
             status: "Success",
             message: "Credentials supplied",
+            username: `${user.fname} ${user.lname}`,
           });
         } else {
           res.json({

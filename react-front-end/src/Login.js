@@ -40,7 +40,11 @@ export const Login = () => {
       })
       .then((response) => {
         if (response) {
-          localStorage.setItem("login", response.data.status);
+          let resData = {
+            status: response.data.status,
+            username: response.data.username,
+          };
+          localStorage.setItem("login", JSON.stringify(resData));
         }
       })
       .then(() => {

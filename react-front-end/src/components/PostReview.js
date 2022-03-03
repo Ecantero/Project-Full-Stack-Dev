@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "@mui/material/Rating";
 import { gql, useMutation } from "@apollo/client";
 
@@ -12,25 +12,42 @@ const ADD_REVIEW = gql`
   }
 `;
 
-function PostReview({ movieTitle, user }) {
+function PostReview({ movieTitle }) {
   const [title, setTitle] = useState(movieTitle);
-  const [username, setUsername] = useState(user);
+  const [userdata, setUser] = useState({});
   const [rating, setRating] = useState(0);
   const [review, setReview] = useState("");
+  const [message, setMessage] = useState("");
+  useEffect(() => {
+    setUserData();
+  }, []);
 
   const [addReivew, { data, loading, error }] = useMutation(ADD_REVIEW);
   if (loading) return "... loading";
   if (error) return error.message;
 
+  const setUserData = () => {
+    let user = JSON.parse(localStorage.getItem("login"));
+    setUser(user);
+  };
+
   const addReivewQL = (event) => {
     event.preventDefault();
-    let tempReview = {
-      username: username,
-      title: movieTitle,
-      rating: rating,
-      review: review,
-    };
-    addReivew({ variables: { input: tempReview } });
+    let name = userdata.username;
+    console.log(name);
+
+    if (userdata.status === "Success") {
+      let tempReview = {
+        username: name,
+        title: movieTitle,
+        rating: rating,
+        review: review,
+      };
+      console.log(tempReview);
+      addReivew({ variables: { input: tempReview } });
+    } else {
+      setMessage("User is not authenticated");
+    }
     setRating(0);
     setReview("");
   };
@@ -58,6 +75,7 @@ function PostReview({ movieTitle, user }) {
           Add Review
         </button>
       </form>
+      {message}
     </div>
   );
 }

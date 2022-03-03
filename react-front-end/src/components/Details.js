@@ -14,6 +14,7 @@ const id = windowPathName.slice(9);
 function Details() {
   //    const { movies, isLoaded, error, refetch} = useFetch(FEATURED_API);
   const [movies, setMovieDetails] = useState(null);
+  const [genres, setGenres] = useState([]);
   const [params] = useSearchParams();
   let id = params.get("movieID");
   console.log(id);
@@ -30,6 +31,7 @@ function Details() {
     let data = await fetch(FEATURED_API);
     console.log(data.data);
     setMovieDetails(data.data);
+    setGenres(data.data.genres);
   };
 
   return (
@@ -37,9 +39,9 @@ function Details() {
       <div className='movieDetailsContainer'>
         <div className='movieTitle'>{movies?.title}</div>
         <div className='movieGenres'>
-          <div>{movies?.genres[0].name} </div>
-          <div>{movies?.genres[1].name}</div>
-          <div>{movies?.genres[2].name}</div>
+          {genres.map((names) => (
+            <div>{names.name}</div>
+          ))}
         </div>
         <div className='movieTagline'>"{movies?.tagline}"</div>
         <div className='movieOverview'>
@@ -51,8 +53,8 @@ function Details() {
         <div>{movies?.actor}</div>
         {/* <div onClick={refetch}>click me</div> */}
       </div>
-      <div style={{backgroundColor:"#282c34",width:"50%"}}>
-        <PostReview movieTitle={movies?.title} user={"Dylan"}/>
+      <div style={{ backgroundColor: "#282c34", width: "50%" }}>
+        <PostReview movieTitle={movies?.title} user={"Dylan"} />
       </div>
     </div>
   );

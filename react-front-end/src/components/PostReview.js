@@ -3,8 +3,7 @@ import Rating from "@mui/material/Rating";
 import { gql, useMutation } from "@apollo/client";
 
 // CSS import
-import "../styles/postReviews.css"
-
+import "../styles/postReviews.css";
 
 // graphql query
 const ADD_REVIEW = gql`
@@ -13,7 +12,7 @@ const ADD_REVIEW = gql`
   }
 `;
 
-function PostReview({movieTitle,user}) {
+function PostReview({ movieTitle, user }) {
   const [title, setTitle] = useState(movieTitle);
   const [username, setUsername] = useState(user);
   const [rating, setRating] = useState(0);
@@ -32,30 +31,32 @@ function PostReview({movieTitle,user}) {
       review: review,
     };
     addReivew({ variables: { input: tempReview } });
-    setRating(0)
-    setReview("")
+    setRating(0);
+    setReview("");
   };
   console.log(rating);
 
   return (
-    <div className="review_box">
+    <div className='review_box'>
       <form onSubmit={addReivewQL} className='review_form'>
         <textarea
-        style={{marginBottom:'10px'}}
+          style={{ marginBottom: "10px" }}
           rows={5}
           maxLength={200}
           placeholder='Write your review'
           onChange={(e) => setReview(e.target.value)}></textarea>
         <Rating
-        className="review_stars"
+          className='review_stars'
           name='simple-controlled'
-          size="large"
+          size='large'
           value={rating}
           onChange={(event, newValue) => {
             setRating(newValue);
           }}
         />
-        <button type='submit' className="review_button">Add Review</button>
+        <button type='submit' className='review_button'>
+          Add Review
+        </button>
       </form>
     </div>
   );

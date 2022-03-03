@@ -15,3 +15,18 @@ section{
     font-size: 3em;
     padding: 25px 15px 15px 15px;
 }
+
+
+.login_form{
+    height: 50%;
+    width: 40%;
+    background-color: #6e2cb9;
+
+}
+
+.textInput{
+    margin-top: 30px;
+    margin-bottom: 5px;
+
+    width: 50%;
+}

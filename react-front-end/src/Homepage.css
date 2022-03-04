@@ -5,8 +5,8 @@ section{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-y: scroll;
-    scrollbar-track-color: #ccff8c;
+    /* overflow-y: scroll;
+    scrollbar-track-color: #ccff8c; */
 }
 /* -------------Homepage Components------------- */
 .logo{
@@ -151,7 +151,7 @@ section{
 /* -------------Movie Page------------ */
 .movieDetails{
     /* width: 100vw; */
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #290454;
     color: white;
     padding: 70px;
@@ -203,6 +203,53 @@ section{
     font-weight: bold;
     font-size: 1.5em;
 }
+
+
+/* -------------Cast Container------------- */
+
+.castList{
+   display: flex;
+   flex-direction: row;
+   background-color: #9c88b3;
+   width: 80vw;
+   border-radius: 15px;
+   margin: 10px;
+   height: 80%;
+   justify-content: space-evenly;
+
+    
+
+}
+
+
+/* -------------Cast Card------------- */
+
+.castCard{
+    margin: 15px;
+    overflow-x: hidden;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+.castCard > img{
+    width: 110px;
+    height: 160px;
+
+}
+
+.castCardTitle{
+   text-align: center;
+    
+
+}
+
+
+
+
+
 /* -------------Footer------------- */
 
 .footer{

@@ -13,7 +13,7 @@ const Navigation = () => {
         <Link to="/login">Login</Link>
       </li>
       <li>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signup" style={{ color: "white" }}>Sign Up</Link>
       </li>
     </div>
   );

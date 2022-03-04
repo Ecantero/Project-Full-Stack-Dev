@@ -12,18 +12,16 @@ const Movie = ({ title, poster_path, overview, vote_average, id }) => {
     let path = `/details/${parameterID}`;
     navigate(path);
   };
-  //onClick={ToDetailsPage}
+  
   return (
-    <Link to={`/details?movieID=${id}`}>
+    <Link to={`/details?movieID=${id}`} style={{ textDecoration: 'none' }}>
       <div className='movieCard' id={id}>
         <img src={IMG_API + poster_path} alt={title} />
         <div className='movieCardDescription'>
           <div className='cardTitle'>{title}</div>
           <div className='cardRating'>{vote_average}</div>
         </div>
-        {/* <Link to={{ pathname: "/details", state: { title: title } }}>
-        My route
-      </Link> */}
+  
       </div>
     </Link>
   );

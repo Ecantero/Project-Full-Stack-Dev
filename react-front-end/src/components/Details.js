@@ -1,19 +1,16 @@
+
 import React, { useEffect, useState } from "react";
 import Detail from "./Detail";
 import Movie from "./Movie";
 import axios from "axios";
 import useFetch, { fetch } from "./useFetch";
 import { useSearchParams } from "react-router-dom";
-
 import PostReview from "./PostReview";
-// import './Homepage.css';
-
-const windowPathName = window.location.pathname;
-const id = windowPathName.slice(9);
 
 function Details() {
-  //    const { movies, isLoaded, error, refetch} = useFetch(FEATURED_API);
+  
   const [movies, setMovieDetails] = useState(null);
+  const [cast, setCastDetails] = useState([]);
   const [genres, setGenres] = useState([]);
   const [user, setUser] = useState({});
   const [params] = useSearchParams();
@@ -22,32 +19,41 @@ function Details() {
 
   const API_KEY = "f669645cad8fbe1526a40b2deee8a49e";
   const FEATURED_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+  const CAST_API = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
   const IMG_API = "https://image.tmdb.org/t/p/w200/";
 
   useEffect(() => {
     getData();
-    // setUserData();
   }, []);
 
-  const setUserData = () => {
-    let user = JSON.parse(localStorage.getItem("login"));
-    setUser(user);
-  };
-  console.log(user);
+      const setUserData = () => {
+        let user = JSON.parse(localStorage.getItem("login"));
+        setUser(user);
+      };
+      console.log(user);
+
   const getData = async () => {
     let data = await fetch(FEATURED_API);
-    // console.log(data.data);
-    setMovieDetails(data.data);
+    let cast_data = await fetch(CAST_API);
+
+    setCastDetails(cast_data.data.cast);
+    //setCastDetails(data.cast_data.cast);
     setGenres(data.data.genres);
+    setMovieDetails(data.data);
+    
+    
+   
   };
+console.log(cast);
+console.log(movies);
 
   return (
     <div className='movieDetails'>
       <div className='movieDetailsContainer'>
         <div className='movieTitle'>{movies?.title}</div>
         <div className='movieGenres'>
-          {genres.map((names) => (
-            <div>{names.name}</div>
+          {genres.map((names, index) => (
+            <div key={index}>{names.name}</div>
           ))}
         </div>
         <div className='movieTagline'>"{movies?.tagline}"</div>
@@ -56,48 +62,26 @@ function Details() {
           <div>{movies?.overview}</div>
         </div>
 
-        <div>Actors</div>
-        <div>{movies?.actor}</div>
-        {/* <div onClick={refetch}>click me</div> */}
+        <div className='movieCastTitle'>Top Cast</div>
+    
+         <div className='castList'>
+          {cast.map((castMember, index) => {
+            if(index < 10)
+          return(
+          
+            <div key={index}>{castMember.name}</div>
+          )
+        })}
+        </div>  
       </div>
-      <div style={{ backgroundColor: "#282c34", width: "50%" }}>
-        <PostReview movieTitle={movies?.title} user={user} />
-      </div>
+        <div style={{ backgroundColor: "#282c34", width: "50%" }}>
+          <PostReview movieTitle={movies?.title} user={user} />
+         </div>
+
+
+
     </div>
   );
 
-  // Note:  the empty array means the useEffect will run like componentDidMount()
-
-  // useEffect(() =>{
-  //     axios
-  //     .get(FEATURED_API)
-  //     .then(res => {
-  //         console.log(res)
-  //         setMovies(res.data)
-  //         console.log(movies)
-  //     })
-  //     .catch(err =>{
-  //         console.log(err)
-  //     })
-  // }, [])
-
-  // useEffect(() =>{
-
-  //     fetch(FEATURED_API)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //         console.log(data);
-  //         setMovies(data.results);
-
-  //     });
-
-  //     console.log(movies);
-  // }, []);
-
-  // return <div className='moviesList'>
-
-  //         <div>hi</div>
-
-  // </div>;
 }
 export default Details;

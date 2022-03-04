@@ -24,7 +24,7 @@ const GET_ALL_REVIEWS = gql`
 `;
 
 const GET_ONE_REVEIW = gql`
-  uery Query($title: String) {
+  query Query($title: String) {
   getReview(title: $title) {
     username
     title

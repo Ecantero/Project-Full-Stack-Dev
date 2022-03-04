@@ -49,6 +49,8 @@ app.get("/home", routes.home);
 app.post("/login", urlencodedParser, routes.login);
 app.get("/logout", routes.logout);
 
+app.post("/signUp", routes.signUp);
+
 app.get("/users", routes.users);
 app.get("/user/:id", routes.getUser);
 app.get("/deleteUser/:id", routes.deleteUser);

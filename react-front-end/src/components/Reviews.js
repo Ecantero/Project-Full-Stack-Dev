@@ -1,35 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery, gql, useMutation } from "@apollo/client";
 
-const NODE_API = "http://localhost:3000";
+const GET_ONE_REVEIW = gql`
+  uery Query($title: String) {
+  getReview(title: $title) {
+    username
+    title
+    rating
+    review
+    _id
+  }
+}
+`;
 
 function Reviews(props) {
-  const [reviews, setReviews] = useState([]);
-  const reviewByMovie = [];
-  useEffect(() => {
-    fetch(`${NODE_API}/getReview`, { method: "GET" })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        for (let i = 0; i < data.length; i++) {
-          if (data[i].title == props.title) {
-            reviewByMovie.push(data[i]);
-          }
-        }
-        setReviews(reviewByMovie);
-      });
-  }, []);
+  // get a reivew by id or by parameter
+  console.log(`props.title: ${props.title}`);
+  const getOneReview = useQuery(GET_ONE_REVEIW, {
+    variables: {
+      title: "Red Notice",
+    },
+  });
+
+  if (getOneReview.loading) return "...loading";
+  if (getOneReview.error) console.log(getOneReview.error.message);
+
+  console.log(getOneReview.data);
 
   return (
     <div>
       <p>{props.title} Reviews</p>
-      {reviews.length > 0 &&
-        reviews.map((review) => (
-          <div key={review.id}>
-            <p>{review.username}</p>
-            <p>{review.rating}</p>
-            <p>{review.review}</p>
-          </div>
-        ))}
+      {getOneReview.data.map((review) => (
+        <div key={review.id}>
+          <p>{review.username}</p>
+          <p>{review.rating}</p>
+          <p>{review.review}</p>
+        </div>
+      ))}
     </div>
   );
 }

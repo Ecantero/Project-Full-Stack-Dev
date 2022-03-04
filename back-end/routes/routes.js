@@ -25,16 +25,16 @@ exports.logout = async (req, res) => {
   } catch (error) {
     res.json(error);
   }
-}
+};
 
 exports.delete = async (req, res) => {
   let Email = req.params.id;
-console.log(Email);
+  console.log(Email);
   // ObjectId("6202951ea2feb06ced2488d2")
   try {
     await client.connect();
     const deleteTest = await collection.findOneAndDelete({
-      email: Email
+      email: Email,
     });
     client.close();
     console.log("review delete");
@@ -132,6 +132,37 @@ exports.login = async (req, res) => {
     res.json(error);
   } finally {
     //await client.close();
+  }
+};
+
+exports.signUp = async (req, res) => {
+  // user schema
+  // fname: "Hans";
+  // lname: "Clemons";
+  // street: "168 Wilder St";
+  // city: "Dyer Pond";
+  // state: "CT";
+  // zip_code: 33276;
+  // email: "hans.clemons@tbeatty.com";
+  // password: "$2a$10$ADCUVsHeU8QpVvacVyRODOk7FKzUSSyTzb2ZOex2Y4AMPt4ZJwG22";
+  // phone: "(400) 81-9738";
+  console.log(`user information: ${req.body.fname}`);
+  const pass = bcrypt.hashSync(req.body.password);
+  try {
+    await client.connect();
+    const createUser = await collection.insertOne({
+      fname: req.body.fname,
+      lname: req.body.lname,
+      street: req.body.street,
+      city: req.body.city,
+      zip_code: req.body.zip_code,
+      email: req.body.email,
+      password: pass,
+      phone: req.body.phone,
+    });
+    console.log(`Inserted User: ${createUser}`);
+  } catch (error) {
+    res.json(error);
   }
 };
 

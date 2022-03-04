@@ -10,6 +10,7 @@ import Homepage from "./Homepage";
 import Login from "./Login";
 import Navigation from "./Navigation";
 import Details from "./components/Details";
+import SignUp from "./signUp";
 import Footer from "./Footer";
 
 import Test from "./components/Test";
@@ -31,6 +32,10 @@ const App = () => {
     {
       path: "/test",
       element: <Test />,
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
     },
   ]);
   return element;

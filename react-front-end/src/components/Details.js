@@ -6,6 +6,7 @@ import useFetch, { fetch } from "./useFetch";
 import { useSearchParams } from "react-router-dom";
 
 import PostReview from "./PostReview";
+import Reviews from "./Reviews";
 // import './Homepage.css';
 
 const windowPathName = window.location.pathname;
@@ -62,6 +63,9 @@ function Details() {
       </div>
       <div style={{ backgroundColor: "#282c34", width: "50%" }}>
         <PostReview movieTitle={movies?.title} user={user} />
+      </div>
+      <div>
+          <Reviews title = {movies?.title}/>
       </div>
     </div>
   );

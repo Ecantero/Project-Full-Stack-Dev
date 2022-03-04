@@ -21,9 +21,6 @@ const Movie = ({ title, poster_path, overview, vote_average, id }) => {
           <div className='cardTitle'>{title}</div>
           <div className='cardRating'>{vote_average}</div>
         </div>
-        {/* <Link to={{ pathname: "/details", state: { title: title } }}>
-        My route
-      </Link> */}
       </div>
     </Link>
   );

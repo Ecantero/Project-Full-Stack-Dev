@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const rest_API = "http://localhost:3030/signUp";
+const rest_API = "http://localhost:3000/signUp";
 
 // fname: "Hans";
 // lname: "Clemons";

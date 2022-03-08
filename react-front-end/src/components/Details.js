@@ -5,6 +5,7 @@ import axios from "axios";
 import useFetch, { fetch } from "./useFetch";
 import { useSearchParams } from "react-router-dom";
 import PostReview from "./PostReview";
+import Reviews from "./Reviews";
 
 function Details() {
   
@@ -36,7 +37,6 @@ function Details() {
     let cast_data = await fetch(CAST_API);
 
     setCastDetails(cast_data.data.cast);
-    //setCastDetails(data.cast_data.cast);
     setGenres(data.data.genres);
     setMovieDetails(data.data);
     

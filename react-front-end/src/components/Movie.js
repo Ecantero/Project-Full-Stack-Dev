@@ -2,16 +2,16 @@ import React from "react";
 import "../Homepage.css";
 import { useNavigate, Link } from "react-router-dom";
 
-var parameterID = "";
+// var parameterID = "";
 const IMG_API = "https://image.tmdb.org/t/p/w200/";
 
 const Movie = ({ title, poster_path, overview, vote_average, id }) => {
-  let navigate = useNavigate();
-  const ToDetailsPage = (e) => {
-    parameterID = e.currentTarget.id;
-    let path = `/details/${parameterID}`;
-    navigate(path);
-  };
+  // let navigate = useNavigate();
+  // const ToDetailsPage = (e) => {
+  //   parameterID = e.currentTarget.id;
+  //   let path = `/details/${parameterID}`;
+  //   navigate(path);
+  // };
   
   return (
     <Link to={`/details?movieID=${id}`} style={{ textDecoration: 'none' }}>

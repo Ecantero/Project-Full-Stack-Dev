@@ -11,6 +11,7 @@ import Login from "./Login";
 import Navigation from "./Navigation";
 import Details from "./components/Details";
 import SignUp from "./signUp";
+import Search from "./Search";
 import Footer from "./Footer";
 
 import Test from "./components/Test";
@@ -37,6 +38,10 @@ const App = () => {
       path: "/signup",
       element: <SignUp />,
     },
+    {
+      path: "/search/*",
+      element: <Search/>
+    }
   ]);
   return element;
 };

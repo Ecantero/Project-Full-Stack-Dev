@@ -5,11 +5,7 @@ import axios from "axios";
 import useFetch, { fetch } from "./useFetch";
 import { useSearchParams } from "react-router-dom";
 import PostReview from "./PostReview";
-<<<<<<< Updated upstream
 import Reviews from "./Reviews";
-=======
-import Reviews from './Reviews'
->>>>>>> Stashed changes
 
 function Details() {
   const [movies, setMovieDetails] = useState(null);

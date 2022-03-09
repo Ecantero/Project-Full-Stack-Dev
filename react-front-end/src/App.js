@@ -14,6 +14,8 @@ import SignUp from "./signUp";
 import Search from "./Search";
 import Footer from "./Footer";
 import Admin from "./components/Admin";
+import "./App.css";
+import Genre from "./Genre";
 
 import Test from "./components/Test";
 
@@ -46,6 +48,10 @@ const App = () => {
     {
       path: "/admin",
       element: <Admin />,
+    },
+    {
+      path: "/search/genres",
+      element: <Genre />,
     },
   ]);
   return element;

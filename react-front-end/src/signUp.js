@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const rest_API = "http://localhost:3000/signUp";
 
@@ -21,6 +22,8 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const [phone, setPhone] = useState("");
+  const nav = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +47,7 @@ function SignUp() {
       },
       body: JSON.stringify(user),
     });
+    nav("/login");
   };
 
   return (

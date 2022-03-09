@@ -40,17 +40,14 @@ const Navigation = () => {
       <li>
         <div className="searchBar">
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="search..." name="searchedTerm" value={formValues.searchedTerm} onChange={handleChange}/>
-            {/* <button>submit</button>  */}
-            {/* <Link to={`/details?movieID=${id}`} style={{ textDecoration: 'none' }}> */}
-              <Link
-                to={{
-                pathname: `/search?term=${formValues.searchedTerm}`
-                }}
-              >submit</Link>
+            <input className='searchInput' type="text" placeholder="search..." name="searchedTerm" value={formValues.searchedTerm} onChange={handleChange}/>
+           
+              <Link to={{ pathname: `/search?term=${formValues.searchedTerm}`}} className='submitButton'>
+                submit
+              </Link>
+
           </form> 
             
-            {/* <div style={{ color: "white",backgroundColor:'green'}}>submit</div>         */}
         </div>
       </li>
     </div>

@@ -18,6 +18,7 @@ function Reviews(props) {
   console.log(`props.title: ${props.title}`);
   // const [reviews, setReview] = useState([]);
   let reviews = [];
+  let getReviews;
   const getOneReview = useQuery(GET_ONE_REVEIW, {
     variables: {
       title: props.title,
@@ -27,29 +28,29 @@ function Reviews(props) {
   if (getOneReview.loading) return "...loading";
   if (getOneReview.error) {
     console.log(getOneReview.error.message);
-  }
+  } else {
+    // setReview(getOneReview);
+    // console.log(getOneReview);
+    for (let i = 0; i < getOneReview.data.getReview.length; i++) {
+      const element = getOneReview.data.getReview[i];
+      console.log(element);
+      reviews.push(element);
+    }
+    // console.log(reviews);
 
-  // setReview(getOneReview.data)
-  reviews.push(getOneReview.data);
-  console.log(reviews[0].getReview[0]._id);
-  // console.log(getOneReview.data);
-  let i = 0;
-  const getReviews = reviews.map(
-    (review) => (
-      console.log(review.getReview[0]),
-      (
-        <div key={review.getReview[i]._id}>
-          <p>Username: {review.getReview[i].username}</p>
-          <p>Rating: {review.getReview[i].rating} stars</p>
-          <p>Review: {review.getReview[i].review}</p>
-        </div>
-      )
-    )
-  );
+    getReviews = reviews.map((review) => (
+      <div key={review._id}>
+        <p>Username: {review.username}</p>
+        <p>Rating: {review.rating} stars</p>
+        <p>Review: {review.review}</p>
+        <br/>
+      </div>
+    ));
+  }
 
   return (
     <div>
-      <p>{props.title} Reviews</p>
+      <h2>{props.title} Reviews</h2>
       {getReviews}
     </div>
   );

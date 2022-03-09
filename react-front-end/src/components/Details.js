@@ -14,7 +14,7 @@ function Details() {
   const [user, setUser] = useState({});
   const [params] = useSearchParams();
   let id = params.get("movieID");
-  console.log(id);
+  // console.log(id);
 
   const API_KEY = "f669645cad8fbe1526a40b2deee8a49e";
   const FEATURED_API = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
@@ -29,7 +29,7 @@ function Details() {
     let user = JSON.parse(localStorage.getItem("login"));
     setUser(user);
   };
-  console.log(user);
+  // console.log(user);
 
   const getData = async () => {
     let data = await fetch(FEATURED_API);
@@ -39,8 +39,8 @@ function Details() {
     setGenres(data.data.genres);
     setMovieDetails(data.data);
   };
-  console.log(cast);
-  console.log(movies);
+  // console.log(cast);
+  // console.log(movies);
 
   return (
     <div className='movieDetails'>
@@ -98,6 +98,9 @@ function Details() {
           }}>
           <PostReview movieTitle={movies?.title} user={user} />
         </div>
+      </div>
+      <div>
+        <Reviews title={movies?.title} />
       </div>
     </div>
   );

@@ -151,7 +151,7 @@ section{
 /* -------------Movie Page------------ */
 .movieDetails{
     /* width: 100vw; */
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #290454;
     color: white;
     padding: 70px;
@@ -207,5 +207,5 @@ section{
 
 .footer{
     padding:15px;
-    height: 50px;
+    /* height: 50px; */
 }

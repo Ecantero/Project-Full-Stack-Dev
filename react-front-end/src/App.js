@@ -12,6 +12,7 @@ import Navigation from "./Navigation";
 import Details from "./components/Details";
 import SignUp from "./signUp";
 import Footer from "./Footer";
+import "./App.css";
 
 import Test from "./components/Test";
 

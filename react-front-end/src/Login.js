@@ -39,6 +39,7 @@ export const Login = () => {
         password: password,
       })
       .then((response) => {
+        console.log(response);
         if (response) {
           let resData = {
             status: response.data.status,
@@ -49,6 +50,7 @@ export const Login = () => {
       })
       .then(() => {
         let storage = localStorage.getItem("login");
+        console.log(storage);
         if (storage) {
           navigate("/", { replace: true });
         }

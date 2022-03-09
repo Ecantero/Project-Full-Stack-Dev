@@ -111,6 +111,8 @@ exports.login = async (req, res) => {
       console.log(user);
       if (user != null) {
         if (comparePassword(password, user.password)) {
+          console.log("user found");
+          console.log(user);
           res.json({
             status: "Success",
             message: "Credentials supplied",

@@ -51,10 +51,7 @@ section{
     
 
 }
-.searchTitles{
-    color: white;
-    font-size: 20px;
-}
+
 
 
 /* -------------Movie Card------------- */
@@ -214,9 +211,27 @@ section{
     
 
 }
-
-
-
+/* -------------Search------------- */
+.peopleList{
+    display: flex;
+    flex-direction: row ;
+}
+.searchTitles{
+    color: white;
+    font-size: 30px;
+}
+.searchInput{
+    border-radius: 10px;
+    border: 3px solid #ccff8c;
+}
+.submitButton{
+    color: #000000;
+    background-color: #ccff8c;
+    font-size: 15px;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
 
 
 /* -------------Footer------------- */

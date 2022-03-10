@@ -9,8 +9,8 @@ function Movies() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [movies, setMovies] = useState([]);
-  let data = localStorage.getItem("login");
-  console.log(JSON.parse(data));
+  // let data = localStorage.getItem("login");
+  // console.log(JSON.parse(data));
 
   // Note:  the empty array means the useEffect will run like componentDidMount()
   useEffect(() => {

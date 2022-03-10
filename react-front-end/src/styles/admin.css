@@ -1,0 +1,24 @@
+.adminPage{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.admin_container{
+    width: 800px;
+    height: 600px;
+    
+    margin-left: 10px;
+
+    border: 1px solid black;
+
+    overflow-y: scroll;
+}
+
+
+.review_data{
+    display: flex;
+    flex-direction: row;
+
+    justify-content:space-between;
+}

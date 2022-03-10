@@ -23,16 +23,6 @@ export const Login = () => {
       password: password,
     };
 
-    // fetch("http://localhost:3000/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json)
-    //   .then((response) => console.log(response));
-
     axios
       .post("http://localhost:3000/login", {
         email: email,
@@ -44,6 +34,7 @@ export const Login = () => {
           let resData = {
             status: response.data.status,
             username: response.data.username,
+            admin: response.data.admin,
           };
           localStorage.setItem("login", JSON.stringify(resData));
         }
@@ -72,8 +63,7 @@ export const Login = () => {
           <TextField
             sx={{
               margin: "0 auto",
-              // marginTop: "5px",
-              // marginBottom: "5px",
+              color: "#ffff",
             }}
             className='textInput'
             id='outlined-basic'
@@ -84,8 +74,7 @@ export const Login = () => {
           <TextField
             sx={{
               margin: "0 auto",
-              // marginTop: "5px",
-              // marginBottom: "5px",
+              color: "#ffff",
             }}
             className='textInput'
             id='outlined-basic'

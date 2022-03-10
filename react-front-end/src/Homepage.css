@@ -1,129 +1,111 @@
-section{
-    background-color: #290454;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* overflow-y: scroll;
+section {
+  background-color: #290454;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* overflow-y: scroll;
     scrollbar-track-color: #ccff8c; */
 }
 /* -------------Homepage Components------------- */
-.logo{
-    width:25%;
-    height: 25%;
-    padding: 15px;
+.logo {
+  width: 25%;
+  height: 25%;
+  padding: 15px;
 }
-.title{
-    font-size: 3em;
-    padding: 25px 15px 15px 15px;
+.title {
+  font-size: 3em;
+  padding: 25px 15px 15px 15px;
 }
-.subtitle{
-    margin: 10px;
+.subtitle {
+  margin: 10px;
 }
 
-.moviesCollection{
-
-    margin: 25px 0px 35px 0px;
-    /* background-color: white; */
-    width: 150vh;
-    height: 170vh;
-    color: #000000;
-    overflow-y: scroll;
-    /* display: flex;
+.moviesCollection {
+  margin: 25px 0px 35px 0px;
+  /* background-color: white; */
+  width: 150vh;
+  height: 170vh;
+  color: #000000;
+  overflow-y: scroll;
+  /* display: flex;
     flex-wrap: wrap; */
 }
-.moviesCollectionTitle{
-    text-align: center;
-    color: #ccff8c;
-    font-size: 2em;
-    font-weight: bold;
-    margin: 10px;
+.moviesCollectionTitle {
+  text-align: center;
+  color: #ccff8c;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px;
 }
-
 
 /* -------------Movie Container------------- */
 
-.moviesList{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-
+.moviesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.searchTitles{
-    color: white;
-    font-size: 20px;
-}
-
 
 /* -------------Movie Card------------- */
 
-.movieCard{
-    width: 200px;
-    height: 360px;
-    margin: 25px;
-    display: flex;
-    /* border-radius: 15px; */
-    align-items: center;
-    flex-direction: column;
-    background-color: #9c88b3;
-    cursor: pointer;
-
+.movieCard {
+  width: 200px;
+  height: 360px;
+  margin: 25px;
+  display: flex;
+  /* border-radius: 15px; */
+  align-items: center;
+  flex-direction: column;
+  background-color: #9c88b3;
+  cursor: pointer;
 }
 
-.movieCard > img{
-    width: 100%;
-    /* border-top-left-radius: 15px;
+.movieCard > img {
+  width: 100%;
+  /* border-top-left-radius: 15px;
     border-top-right-radius: 15px; */
-
 }
 
-.movieCardDescription{
-    display:flex;
-    flex-direction: row;
-    /* padding: 15px; */
-    width: 100%;
-    height: 100%;
-   
+.movieCardDescription {
+  display: flex;
+  flex-direction: row;
+  /* padding: 15px; */
+  width: 100%;
+  height: 100%;
 }
-.cardTitle{
-    flex-wrap: wrap;
-    font-size: 13px;
-    width: 80%;
-    text-align: left;
-    justify-content: flex-start;
-    padding-left: 15px;
-    padding-right: 5px;
-    color: #ffffff;
-    align-self: center;
-    
-
+.cardTitle {
+  flex-wrap: wrap;
+  font-size: 13px;
+  width: 80%;
+  text-align: left;
+  justify-content: flex-start;
+  padding-left: 15px;
+  padding-right: 5px;
+  color: #ffffff;
+  align-self: center;
 }
-.cardRating{
-    width: 20%;
-    justify-content: flex-end;
-    color: #ccff8c;
-    background-color: #290454;
-    border-radius: 5px;
-    margin: 5px 10px 5px 5px;
-    padding: 2px;
-    text-align: center;
-    height: 50%;
-    align-self: center;
-
-    
-
-
+.cardRating {
+  width: 20%;
+  justify-content: flex-end;
+  color: #ccff8c;
+  background-color: #290454;
+  border-radius: 5px;
+  margin: 5px 10px 5px 5px;
+  padding: 2px;
+  text-align: center;
+  height: 50%;
+  align-self: center;
 }
 
 /* -------------Movie Page------------ */
-.movieDetails{
-    /* width: 100vw; */
-    /* height: 100vh; */
-    background-color: #290454;
-    color: white;
-    padding: 70px;
+.movieDetails {
+  /* width: 100vw; */
+  /* height: 100vh; */
+  background-color: #290454;
+  color: white;
+  padding: 70px;
 }
 /* .movieDetailsContainer{
     background-color: rgba(255, 255, 255, .15);  
@@ -133,110 +115,120 @@ section{
     border-radius: 15px;
     padding: 20px;
 } */
-.movieTitle{
-    font-weight: bold;
-    font-size: 2em;
-    padding: 0px 0px 10px 0px;
+.movieTitle {
+  font-weight: bold;
+  font-size: 2em;
+  padding: 0px 0px 10px 0px;
 }
-.movieGenres{
-    display: flex;
-    flex-direction: row;
-    margin-left: -5px;
-    padding: 0px 0px 10px 0px;
+.movieGenres {
+  display: flex;
+  flex-direction: row;
+  margin-left: -5px;
+  padding: 0px 0px 10px 0px;
 }
 .movieGenres > div {
-    margin: 5px;
-    background-color: #9c88b3;
-    border-radius: 5px;
-    padding: 5px;
-
+  margin: 5px;
+  background-color: #9c88b3;
+  border-radius: 5px;
+  padding: 5px;
 }
-.movieTagline{
-    font-style: italic;
-    padding: 0px 0px 5px 0px;
-
+.movieTagline {
+  font-style: italic;
+  padding: 0px 0px 5px 0px;
 }
-.movieOverview{
-    display: flex;
-    flex-direction: row;
-    margin: 10px 0px 10px 0px;
+.movieOverview {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px 10px 0px;
 }
-.movieOverview > div{
-    width: 500px;
-    flex-wrap: wrap;
-    margin: 10px;
-
+.movieOverview > div {
+  width: 500px;
+  flex-wrap: wrap;
+  margin: 10px;
 }
-.movieCastTitle{
-    color:#ccff8c;
-    font-weight: bold;
-    font-size: 1.5em;
+.movieCastTitle {
+  color: #ccff8c;
+  font-weight: bold;
+  font-size: 1.5em;
 }
-
 
 /* -------------Cast Container------------- */
 
-.castList{
-   display: flex;
-   flex-direction: row;
-   background-color: #9c88b3;
-   width: 80vw;
-   border-radius: 15px;
-   margin: 10px;
-   height: 80%;
-   justify-content: space-evenly;
-
-    
-
+.castList {
+  display: flex;
+  flex-direction: row;
+  background-color: #9c88b3;
+  width: 80vw;
+  border-radius: 15px;
+  margin: 10px;
+  height: 80%;
+  justify-content: space-evenly;
 }
-
 
 /* -------------Cast Card------------- */
 
-.castCard{
-    margin: 15px;
-    overflow-x: hidden;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-
+.castCard {
+  margin: 15px;
+  overflow-x: hidden;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.castCard > img{
-    width: 110px;
-    height: 160px;
-
+.castCard > img {
+  width: 110px;
+  height: 160px;
 }
 
-.castCardTitle{
-   text-align: center;
-    
-
+.castCardTitle {
+  text-align: center;
 }
 
-.signup{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #000;
-    background-color: #9c88b3;
-    /* height: 350px; */
-    width: 400px;
-    padding: 50px;
+/* ----------- sign up form------------- */
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  background-color: #9c88b3;
+  /* height: 350px; */
+  width: 400px;
+  padding: 50px;
 }
 
-.formContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 660px;
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 660px;
 }
 
+/* -------------Search------------- */
+.peopleList {
+  display: flex;
+  flex-direction: row;
+}
+.searchTitles {
+  color: white;
+  font-size: 30px;
+}
+.searchInput {
+  border-radius: 10px;
+  border: 3px solid #ccff8c;
+}
+.submitButton {
+  color: #000000;
+  background-color: #ccff8c;
+  font-size: 15px;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding: 5px;
+}
 
 /* -------------Footer------------- */
 
-.footer{
-    padding:15px;
-    /* height: 50px; */
+.footer {
+  padding: 15px;
+  /* height: 50px; */
 }

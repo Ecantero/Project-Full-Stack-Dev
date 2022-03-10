@@ -17,11 +17,12 @@ const resolvers = {
     getReview: async (root, { title }) => {
       console.log(title);
       await client.connect();
-      const getOneReview = await reviewCollection.find({
-        title: title,
-      }).toArray()
+      const getOneReview = await reviewCollection
+        .find({
+          title: title,
+        })
+        .toArray();
       client.close();
-      console.log(getOneReview);
       return getOneReview;
     },
 
@@ -37,7 +38,6 @@ const resolvers = {
       await client.connect();
       const getAllReviews = await reviewCollection.find().toArray();
       client.connect();
-      console.log(getAllReviews);
 
       return getAllReviews;
     },
@@ -55,8 +55,8 @@ const resolvers = {
     },
 
     deleteUser: async (root, { id }) => {
-      await client.close();
-      const deleteUser = await reviewCollection.findOneAndDelete({
+      await client.connect();
+      const deleteUser = await collection.findOneAndDelete({
         _id: ObjectId(id),
       });
       client.close();

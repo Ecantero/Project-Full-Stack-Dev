@@ -13,6 +13,7 @@ import Details from "./components/Details";
 import SignUp from "./signUp";
 import Search from "./Search";
 import Footer from "./Footer";
+import Admin from "./components/Admin";
 import "./App.css";
 import Genre from "./Genre";
 
@@ -42,13 +43,16 @@ const App = () => {
     },
     {
       path: "/search/*",
-      element: <Search/>
-    }
-    ,
+      element: <Search />,
+    },
+    {
+      path: "/admin",
+      element: <Admin />,
+    },
     {
       path: "/search/genres",
-      element: <Genre/>
-    }
+      element: <Genre />,
+    },
   ]);
   return element;
 };

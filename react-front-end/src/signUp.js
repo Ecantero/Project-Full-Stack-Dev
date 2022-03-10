@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Homepage.css";
 
 const rest_API = "http://localhost:3000/signUp";
 
@@ -23,7 +24,6 @@ function SignUp() {
   const [password, setPass] = useState("");
   const [phone, setPhone] = useState("");
   const nav = useNavigate();
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,76 +51,78 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h2>Sign up here</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
-          <input
-            type="text"
-            value={fname}
-            onChange={(e) => setFname(e.target.value)}
-          />
-        </label>
-        <label>
-          Last Name:
-          <input
-            type="text"
-            value={lname}
-            onChange={(e) => setLname(e.target.value)}
-          />
-        </label>
-        <label>
-          Street:
-          <input
-            type="text"
-            value={street}
-            onChange={(e) => setStreet(e.target.value)}
-          />
-        </label>
-        <label>
-          City:
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </label>
-        <label>
-          Zip Code:
-          <input
-            type="number"
-            value={zip_code}
-            onChange={(e) => setZipCode(e.target.value)}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          Phone:
-          <input
-            type="text"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPass(e.target.value)}
-          />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+    <section>
+      <div className="formContainer">
+        <h2>Sign up here</h2>
+        <form className="signup" onSubmit={handleSubmit}>
+          <label>
+            First Name:
+            <input
+              type="text"
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+            />
+          </label>
+          <label>
+            Last Name:
+            <input
+              type="text"
+              value={lname}
+              onChange={(e) => setLname(e.target.value)}
+            />
+          </label>
+          <label>
+            Street:
+            <input
+              type="text"
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
+            />
+          </label>
+          <label>
+            City:
+            <input
+              type="text"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </label>
+          <label>
+            Zip Code:
+            <input
+              type="number"
+              value={zip_code}
+              onChange={(e) => setZipCode(e.target.value)}
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            Phone:
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPass(e.target.value)}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </section>
   );
 }
 

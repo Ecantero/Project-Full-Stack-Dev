@@ -21,4 +21,23 @@
     flex-direction: row;
 
     justify-content:space-between;
+
 }
+
+
+.review_data p {
+    margin: 0 auto;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+
+.admin_table{
+    width: 100%;
+    table-layout: auto;
+    text-align: left;
+}
+
+/* .admin_table td{
+    width: fit-content;
+} */

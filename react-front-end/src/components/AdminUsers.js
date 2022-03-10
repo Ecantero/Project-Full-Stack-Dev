@@ -30,7 +30,9 @@ function AdminUsers() {
         <h1>All Users</h1>
       </div>
       <div>
-        <SingleUser userData={userData.data.getUsers} />
+        <table className="admin_table">
+          <SingleUser userData={userData.data.getUsers} />
+        </table>
       </div>
     </div>
   );
@@ -48,11 +50,14 @@ function SingleUser({ userData }) {
   return (
     <>
       {userData.map((userData, index) => (
-        <div key={index} className='review_data'>
+        <tr key={index} className='review_data'>
+          <td>
+
           <button onClick={() => deleteUserData(userData._id)}>delete</button>
-          <p>{userData.__typename}</p>
-          <p>{`${userData.fname} ${userData.lname}`}</p>
-        </div>
+          </td>
+          <td>{userData.__typename}</td>
+          <td>{`${userData.fname} ${userData.lname}`}</td>
+        </tr>
       ))}
     </>
   );

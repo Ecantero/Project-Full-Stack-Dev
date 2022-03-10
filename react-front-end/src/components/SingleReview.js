@@ -18,14 +18,19 @@ function SingleReview({ reviewData }) {
   return (
     <>
       {reviewData.map((reviewData, index) => (
-        <div key={index} className='review_data'>
-          <button onClick={() => deleteReviewButton(reviewData._id)}>
-            delete
-          </button>
-          <p>{reviewData.username}</p>
-          <p>{reviewData.title}</p>
-          <p>{reviewData.review}</p>
-        </div>
+        <tr key={index} className='review_data'>
+          <td>
+            <button onClick={() => deleteReviewButton(reviewData._id)}>
+              delete
+            </button>
+          </td>
+
+          <td>{reviewData.username}</td>
+
+          <td>{reviewData.title}</td>
+
+          <td>{reviewData.review}</td>
+        </tr>
       ))}
     </>
   );

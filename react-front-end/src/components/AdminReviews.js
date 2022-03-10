@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import {
-  useQuery,
-  gql,
-  useMutation,
-} from "@apollo/client";
+import { useQuery, gql, useMutation } from "@apollo/client";
 
 import SingleReview from "./SingleReview";
 
@@ -34,12 +30,14 @@ function AdminReviews() {
         <h1>All Reivews</h1>
       </div>
       <div>
-        <SingleReview reviewData={reviewData.data.getAllReviews} />
+        <table>
+          <tbody>
+            <SingleReview reviewData={reviewData.data.getAllReviews} />
+          </tbody>
+        </table>
       </div>
     </div>
   );
 }
 
 export default AdminReviews;
-
-

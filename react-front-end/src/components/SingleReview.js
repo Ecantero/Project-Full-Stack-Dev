@@ -13,6 +13,7 @@ function SingleReview({ reviewData }) {
     console.log(id);
 
     deleteReivewGQL({ variables: { deleteReviewId: id } });
+    console.log(data);
   };
   return (
     <>

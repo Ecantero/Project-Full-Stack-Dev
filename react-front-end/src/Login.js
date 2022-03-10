@@ -49,7 +49,7 @@ export const Login = () => {
   };
 
   return (
-    <section style={{ height: "100vh" }}>
+    <section>
       <div className='title'> Welcome Back - Login</div>
       <img
         className='logoSmall'

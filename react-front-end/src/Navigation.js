@@ -24,7 +24,7 @@ const Navigation = () => {
 
   useEffect(() => {
     setUserData();
-  }, [user]);
+  }, []);
 
   const setUserData = () => {
     if (localStorage.getItem("login") == null) {
@@ -33,7 +33,6 @@ const Navigation = () => {
     } else {
       setUser(JSON.parse(localStorage.getItem("login")));
     }
-    
   };
 
   const signOut = () => {
@@ -64,7 +63,7 @@ const Navigation = () => {
             <Link to='/admin'>Admin</Link>
           </li>
           <li onClick={() => signOut()}>
-            <a style={{ color: "#ffff", cursor:"pointer " }}>Sign Out</a>
+            <a style={{ color: "#ffff", cursor: "pointer " }}>Sign Out</a>
           </li>
         </>
       )}

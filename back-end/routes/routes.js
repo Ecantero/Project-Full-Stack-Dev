@@ -117,6 +117,7 @@ exports.login = async (req, res) => {
             status: "Success",
             message: "Credentials supplied",
             username: `${user.fname} ${user.lname}`,
+            admin: user.admin,
           });
         } else {
           res.json({

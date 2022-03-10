@@ -86,3 +86,4 @@ export class FrontEndService {
     return this.http.get(`https://api.themoviedb.org/3/discover/movie?api_key=${APIKEY}&with_genres=${query}`)
   }
 }
+//testing
